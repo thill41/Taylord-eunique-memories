@@ -11,19 +11,19 @@ class ApplicationController < ActionController::Base
   private
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :username, {store_attributes: [:subdomain]}])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :username, { store_attributes: [:subdomain] }])
   end
 
   def flash_error_message
-    flash[:error] = I18n.t("error")
+    flash.now[:error] = I18n.t('error')
   end
 
   def success_message(object, status = :created)
-    I18n.t("success", class_name: object.class.name.titleize, status: status.to_s)
+    I18n.t('success', class_name: object.class.name.titleize, status: status.to_s)
   end
 
   def unauthorized_request
-    flash[:alert] = I18n.t("authorization")
+    flash[:alert] = I18n.t('authorization')
     redirect_to(root_path)
   end
-  end
+end

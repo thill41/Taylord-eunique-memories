@@ -1,6 +1,6 @@
-require_relative "boot"
+require_relative 'boot'
 
-require "rails/all"
+require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -14,7 +14,7 @@ module Tem
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
     # Common ones are `templates`, `generators`, or `middleware`, for example.
-    config.autoload_lib(ignore: %w(assets tasks))
+    config.autoload_lib(ignore: %w[assets tasks])
 
     # Configuration for the application, engines, and railties goes here.
     #
@@ -25,7 +25,7 @@ module Tem
     # config.eager_load_paths << Rails.root.join("extras")
     config.time_zone = 'Eastern Time (US & Canada)'
 
-    config.autoload_paths += Dir[Rails.root.join("app", "models", "validators")]
+    config.autoload_paths += Rails.root.glob('app/models/validators')
     
     # Change image processor from default vips to imagemagick
     config.active_storage.variant_processor = :mini_magick

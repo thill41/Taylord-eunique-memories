@@ -2,7 +2,7 @@ module Support
   module IntegrationHelpers
     # expects a flash key
     def assert_flash(flash_key)
-      raise ArgumentError, "flash_key must be a Symbol" unless flash_key.is_a?(Symbol)
+      raise ArgumentError, 'flash_key must be a Symbol' unless flash_key.is_a?(Symbol)
 
       assert_not(flash[flash_key].blank?)
     end

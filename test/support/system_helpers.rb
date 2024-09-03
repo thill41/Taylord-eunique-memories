@@ -3,13 +3,13 @@ module Support
     # expect bootstrap alert class (e.g. alert-success)
     def assert_alert(klass)
       wants = case klass
-      when :notice then "primary"
-      when :alert then "primary"
-      when :success then "success"
-      when :error then "danger"
-      else
-        "Unrecognized alert class: #{klass}"
-      end
+              when :notice then 'primary'
+              when :alert then 'primary'
+              when :success then 'success'
+              when :error then 'danger'
+              else
+                "Unrecognized alert class: #{klass}"
+              end
 
       assert_not(find(".alert.alert-#{wants}").text.blank?)
     end
