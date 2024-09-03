@@ -1,0 +1,38 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+section {
+  padding: 0;
+}
+.hero {
+  background-image: url('hero.png');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
+.hero h1 {
+  font-size: 3em;
+  margin: 0;
+}
+.slogan {
+  padding: 50px 0;
+  text-align: center;
+  color: #6DDFC7;
+}
+.slogan h2 {
+  margin: 0;
+  font-size: 2em;
+  color: #6DDFC7;
+}
+.section {
+  padding: 50px 20px;
+  text-align: center;
+  color: #6DDFC7;
+}
