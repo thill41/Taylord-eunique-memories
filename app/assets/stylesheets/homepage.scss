@@ -1,13 +1,8 @@
-body, html {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  width: 100%;
-}
 section {
   padding: 0;
   width: 100%;
 }
+
 .hero {
   background-image: url('hero.png');
   background-size: cover;
@@ -18,33 +13,43 @@ section {
   align-items: center;
   text-align: center;
   color: white;
-}
-.hero h1 {
-  font-size: 3em;
-  margin: 0;
-}
-.slogan {
-  padding: 50px 0;
-  text-align: center;
-  border-bottom: 1px solid #6DDFC7;
-}
-.slogan h2 {
-  margin: 0;
-  font-size: 2em;
-}
-.section {
-  padding: 50px 20px;
-  text-align: center;
-  border-bottom: 1px solid #6DDFC7;
+  
+  h1 {
+    font-size: 3em;
+    margin: 0;
+  }
 }
 
+.slogan,
+.section {
+  padding: 50px auto;
+  text-align: center;
+  border-bottom: none;
+  
+  h2 {
+    margin: 0;
+    font-size: 2em;
+  }
+}
+
+.slogan::after,
+.section::after {
+  content: '';
+  display: block;
+  width: 50%;
+  height: 2px;
+  background-color: #6DDFC7;
+  margin: 20px auto;
+}
+
+// Card styles
 .card-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   gap: 20px;
 }
-// Card styles
+
 .card {
   background-color: #6DDFC7;
   border: 1px solid #6DDFC7; // see what fun you can have with this
@@ -114,5 +119,52 @@ section {
   .card {
       flex: 1 1 100%;
       max-width: 100%;
+  }
+}
+
+// button styles
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  
+  .button {
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 1em;
+    color: black;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .contact-btn {
+    background-color: #6DDFC7;
+    border: 1px solid #6DDFC7;
+  }
+  
+  .contact-btn:hover {
+    background-color: black;
+    border: 1px solid #6DDFC7;
+    color: #6DDFC7
+  }
+  
+  .buy-btn {
+    background-color: #6DDFC7;
+    border: 1px solid #6DDFC7;
+  }
+  
+  .buy-btn:hover {
+    background-color: black;
+    border: 1px solid #6DDFC7;
+    color: #6DDFC7
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .button-container {
+      flex-direction: column;
+      gap: 10px;
   }
 }
