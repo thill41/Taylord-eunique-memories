@@ -17,3 +17,8 @@ User.create!(
   password_confirmation: 'password',
   confirmed_at: Time.zone.now
 )
+
+About.create!(
+  content: 'This is the about us page content.',
+  user: User.first
+)

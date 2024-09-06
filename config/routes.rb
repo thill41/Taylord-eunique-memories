@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
+  
   root to: 'pages#index'
+
+  # GET    /about(.:format)
+  # GET    /about/edit(.:format)
+  # PATCH  /about(.:format)
+  resource :abouts, only: %i[show edit update], path: 'about'
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

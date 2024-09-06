@@ -37,4 +37,20 @@ module ApplicationHelper
       link_to('Sign In', new_user_session_path) + ' | ' + link_to('Sign Up', new_user_registration_path)
     end
   end
+
+  def navbar_links
+    links = [
+      { name: 'About', path: abouts_path, args: { class: 'nav-link' } }
+    ]
+
+    links << { name: 'Sign In', path: new_user_session_path, args: { class: 'nav-link' } } unless user_signed_in?
+    links << { name: 'Sign Out', path: destroy_user_session_path, args: { data: { turbo_method: :delete }, class: 'nav-link' } } if user_signed_in?
+    
+
+    links.map do |link|
+      content_tag(:li, class: 'nav-item') do
+        link_to link[:name], link[:path], link[:args]
+      end
+    end.join.html_safe
+  end
 end
