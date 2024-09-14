@@ -7,4 +7,5 @@ class User < ApplicationRecord
   validates :username, uniqueness: { case_sensitive: false }
   
   has_one :about, dependent: :destroy
+  has_many :photo_albums, dependent: :destroy
 end

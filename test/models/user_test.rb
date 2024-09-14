@@ -10,5 +10,6 @@ class UserTest < ActiveSupport::TestCase
 
   context 'associations' do
     should have_one :about
+    should have_many :photo_albums
   end
 end
