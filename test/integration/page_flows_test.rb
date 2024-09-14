@@ -1,8 +1,9 @@
 require 'test_helper'
 
-class PostFlowsTest < BaseIntegrationTest
-  test 'can see pages page' do
+class PagFlowsTest < BaseIntegrationTest
+  test 'Get /' do
     get '/'
-    assert_select 'h1', 'Welcome to your new app'
+    
+    assert_select 'h2', 'Our Mission: Delivering Excellence Every Day'
   end
 end
