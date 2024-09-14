@@ -40,6 +40,7 @@ module ApplicationHelper
 
   def navbar_links
     links = [
+      { name: 'Gallery', path: '#', args: { class: 'nav-link' } },
       { name: 'About', path: abouts_path, args: { class: 'nav-link' } }
     ]
 
