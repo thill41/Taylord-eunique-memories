@@ -13,5 +13,13 @@ module Support
       follow_redirect!
       assert_not(flash[:alert].blank?)
     end
+
+    def error_message
+      I18n.t('error')
+    end
+
+    def success_message(obj, obj_status = :created)
+      I18n.t('success', class_name: obj.class.name.titleize, status: obj_status.to_s)
+    end
   end
 end

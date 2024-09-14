@@ -1,9 +1,43 @@
-# require 'test_helper'
+require 'test_helper'
 
-# class AboutFlowsTest < BaseIntegrationTest
-#   test 'GET /about' do
-#     visit about_path
+class AboutFlowsTest < BaseIntegrationTest
+  setup do
+    @user = create(:user)
+    @about = create(:about)
+  end
+  
+  test 'GET /about' do
+    get '/about'
 
-#     assert_response :success
-#   end
-# end
+    assert_response :success
+  end
+
+  test 'GET /about/edit' do 
+    sign_in @user
+
+    get '/about/edit'
+
+    assert_response :success
+    assert_select 'h1', 'Edit About'
+  end
+
+  test 'PATCH /about success' do
+    sign_in @user
+
+    patch '/about', params: { about: { content: 'New content' } }
+
+    assert_redirected_to '/about'
+    follow_redirect!
+    assert_select "div[role='alert']", success_message(@about)
+    assert_select '.trix-content', 'New content'
+  end
+
+  test 'PATCH /about failure' do
+    sign_in @user
+
+    patch '/about', params: { about: { content: '' } }
+
+    assert_response :success
+    assert_select "div[role='alert']", error_message
+  end
+end
