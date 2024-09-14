@@ -5,11 +5,25 @@ class AboutFlowsTest < BaseIntegrationTest
     @user = create(:user)
     @about = create(:about)
   end
+
+  test 'require sign-in' do
+    requires_authentication { get '/about/edit' }
+    requires_authentication { patch '/about' }
+  end
   
-  test 'GET /about' do
+  test 'GET /about public' do
     get '/about'
 
     assert_response :success
+    assert_select 'a', text: 'Edit About', count: 0
+  end
+
+  test 'GET /about signed-in' do
+    sign_in @user
+    get '/about'
+
+    assert_response :success
+    assert_select 'a', text: 'Edit About'
   end
 
   test 'GET /about/edit' do 
