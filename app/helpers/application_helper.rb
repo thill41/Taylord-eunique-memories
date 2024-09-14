@@ -43,6 +43,10 @@ module ApplicationHelper
       { name: 'About', path: abouts_path, args: { class: 'nav-link' } }
     ]
 
+    if user_signed_in?
+      links << { name: 'Edit About', path: edit_abouts_path, args: { class: 'nav-link' } } if current_page?(abouts_path)
+    end
+
     links << { name: 'Sign In', path: new_user_session_path, args: { class: 'nav-link' } } unless user_signed_in?
     links << { name: 'Sign Out', path: destroy_user_session_path, args: { data: { turbo_method: :delete }, class: 'nav-link' } } if user_signed_in?
     
