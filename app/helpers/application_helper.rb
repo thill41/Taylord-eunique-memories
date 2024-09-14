@@ -38,24 +38,68 @@ module ApplicationHelper
     end
   end
 
-  def navbar_links
-    links = [
-      { name: 'Gallery', path: '#', args: { class: 'nav-link' } },
-      { name: 'About', path: abouts_path, args: { class: 'nav-link' } }
-    ]
+  def navbar_links(options = {})
+    links = default_links
 
     if user_signed_in?
-      links << { name: 'Edit About', path: edit_abouts_path, args: { class: 'nav-link' } } if current_page?(abouts_path)
+      links.concat(signed_in_links(options))
+    else
+      links.concat(signed_out_links)
     end
 
-    links << { name: 'Sign In', path: new_user_session_path, args: { class: 'nav-link' } } unless user_signed_in?
-    links << { name: 'Sign Out', path: destroy_user_session_path, args: { data: { turbo_method: :delete }, class: 'nav-link' } } if user_signed_in?
-    
+    links.map { |link| build_nav_item(link) }.join.html_safe
+  end
 
-    links.map do |link|
-      content_tag(:li, class: 'nav-item') do
-        link_to link[:name], link[:path], link[:args]
-      end
-    end.join.html_safe
+  private
+
+  def default_links
+    [
+      { name: 'About', path: abouts_path, args: { class: 'nav-link' } },
+      { name: 'Gallery', path: photo_albums_path, args: { class: 'nav-link' } }
+    ]
+  end
+
+  def signed_in_links(options)
+    links = []
+    links << { name: 'Edit About', path: edit_abouts_path } if current_page?(abouts_path)
+
+    if current_page?(photo_albums_path)
+      links << { name: 'New Gallery', path: new_photo_album_path }
+    end
+
+    if (album = options[:photo_album]).present?
+      links.concat(album_links(album))
+    end
+
+    links << { name: 'Sign Out', path: destroy_user_session_path, args: { data: { turbo_method: :delete } } }
+    links
+  end
+
+  def signed_out_links
+    [{ name: 'Sign In', path: new_user_session_path }]
+  end
+
+  def album_links(album)
+    links = []
+    
+    return links if album.id.blank?
+
+    if current_page?(photo_album_path(album))
+      links << { name: 'Edit Gallery', path: edit_photo_album_path(album) }
+    end
+
+    return links unless album.respond_to?(:id)
+
+    if current_page?(edit_photo_album_path(album))
+      links << { name: 'Delete Gallery', path: photo_album_path(album), args: { data: { turbo_method: :delete } } }
+    end
+    links
+  end
+
+  def build_nav_item(link)
+    args = { class: 'nav-link' }.merge(link[:args] || {})
+    content_tag(:li, class: 'nav-item') do
+      link_to link[:name], link[:path], args
+    end
   end
 end
