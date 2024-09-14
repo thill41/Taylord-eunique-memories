@@ -22,3 +22,9 @@ About.create!(
   content: 'This is the about us page content.',
   user: User.first
 )
+
+2.times do |n|
+  user.photo_albums.create!(
+    title: "Photo Gallery #{n}"
+  )
+end
