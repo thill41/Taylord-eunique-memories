@@ -42,9 +42,9 @@ class PhotoAlbumsController < ApplicationController
 
   def set_photo_album
     @photo_album = if user_signed_in?
-                     current_user.photo_albums.find(params[:id])
+                     current_user.photo_albums.includes(:photos).find(params[:id])
                    else 
-                     PhotoAlbum.find(params[:id])
+                     PhotoAlbum.includes(:photos).find(params[:id])
                    end
   end
 
