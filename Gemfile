@@ -83,3 +83,5 @@ gem 'ransack'
 gem 'sassc-rails'
 gem 'sidekiq'
 gem 'will_paginate'
+
+gem "cssbundling-rails", "~> 1.4"
