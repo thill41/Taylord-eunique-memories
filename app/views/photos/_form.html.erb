@@ -1,13 +1,8 @@
-<%= render 'layouts/error_messages_for', obj: @photo %>
-
-<h1>Add Photo to <%= @photo_album.title %> Album</h1>
-
 <%= form_with model: [@photo_album, @photo], data: { turbo: false } do |f| %>
   <div class="field">
     <%= f.label :image %>
     <%= f.file_field :image, multipart: true %>
   </div>
-  
   <div class="field">
     <%= f.label :conver_photo %>
     <%= f.check_box :cover_photo %>

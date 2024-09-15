@@ -1,0 +1,20 @@
+<%= render 'layouts/error_messages_for', obj: @photo %>
+
+<h1>Edit Photo for  <%= @photo_album.title %> Album</h1>
+
+<%= form_with model: [@photo_album, @photo], data: { turbo: false } do |f| %>
+  <div class="field">
+    <%= f.label :conver_photo %>
+    <%= f.check_box :cover_photo %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :description, 'Description (Optional)' %>
+    <%= f.text_field :description %>
+  </div>
+
+  <div class="actions">
+    <%= cancel_button(@photo_album) %>
+    <%= f.submit %>
+  </div>
+<% end %>
