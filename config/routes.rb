@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   # GET    /about/edit(.:format)
   # PATCH  /about(.:format)
   resource :abouts, only: %i[show edit update], path: 'about'
-  resources :photo_albums
+  resources :photo_albums do
+    resources :photos, except: %i[index]
+  end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
