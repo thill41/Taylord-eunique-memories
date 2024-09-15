@@ -1,0 +1,12 @@
+<%= form_with model: @photo_album, data: { turbo: false } do |f| %>
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  
+  <div class="actions">
+    <%= cancel_button(@photo_album) %>
+    <%= f.submit %>
+  </div>
+
+<% end %>
