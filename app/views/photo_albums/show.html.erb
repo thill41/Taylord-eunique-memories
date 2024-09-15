@@ -1,3 +1,13 @@
 <h1><%= @photo_album.title %></h1>
 
 <%= no_photos_message(@photo_album) %>
+
+<% @photo_album.photos.in_groups_of(5, nil) do |group| %>
+  <div class="row">
+    <% group.each do |photo| %>
+      <div class="col-md-2">
+        <%= render photo if photo%>
+      </div>
+    <% end %>
+  </div>
+<% end %>
