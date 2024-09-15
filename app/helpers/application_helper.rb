@@ -85,6 +85,7 @@ module ApplicationHelper
     return links if album.id.blank?
 
     if current_page?(photo_album_path(album))
+      links << { name: 'New Photo', path: new_photo_album_photo_path(album) }
       links << { name: 'Edit Gallery', path: edit_photo_album_path(album) }
     end
 

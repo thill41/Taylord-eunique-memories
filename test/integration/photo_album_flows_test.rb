@@ -34,6 +34,16 @@ class PhotoAlbumFlowsTest < BaseIntegrationTest
 
     assert_response :success
     assert_select 'h1', text: @photo_album.title
+    assert_select 'a', text: 'New Photo', count: 0
+    assert_select 'a', text: 'New Gallery', count: 0
+  end
+
+  test 'new photo link visible to user' do
+    sign_in @user
+
+    get photo_album_url(@photo_album)
+    
+    assert_select 'a', text: 'New Photo', count: 1
   end
 
   test 'creating a new photo album' do
