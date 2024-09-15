@@ -71,6 +71,10 @@ module ApplicationHelper
       links.concat(album_links(album))
     end
 
+    if (photo = options[:photo]).present?
+      links.concat(photo_links(photo))
+    end
+
     links << { name: 'Sign Out', path: destroy_user_session_path, args: { data: { turbo_method: :delete } } }
     links
   end
@@ -94,6 +98,19 @@ module ApplicationHelper
     if current_page?(edit_photo_album_path(album))
       links << { name: 'Delete Gallery', path: photo_album_path(album), args: { data: { turbo_method: :delete } } }
     end
+    links
+  end
+
+  def photo_links(photo)
+    links = []
+
+    return links if photo.id.blank?
+
+    if current_page?(photo_album_photo_path(photo.photo_album, photo))
+      links << { name: 'Edit Photo', path: edit_photo_album_photo_path(photo.photo_album, photo) }
+      links << { name: 'Delete Photo', path: photo_album_photo_path(photo.photo_album, photo), args: { data: { turbo_method: :delete } } }
+    end
+
     links
   end
 
