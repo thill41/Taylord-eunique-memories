@@ -2,11 +2,11 @@ class Photo < ApplicationRecord
   belongs_to :user
   belongs_to :photo_album
 
-  has_many_attached :images
+  has_one_attached :image
 
   scope :cover, -> { where(cover_photo: true) }
 
-  validates :images, attached: true, content_type: %i[png jpeg gif]
+  validates :image, attached: true, content_type: %i[png jpeg gif]
   validate :only_one_cover_photo
 
   private

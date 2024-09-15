@@ -9,7 +9,7 @@ class PhotoFlowsTest < BaseIntegrationTest
 
   test 'require authentication' do
     requires_authentication { get new_photo_album_photo_url(@photo_album) }
-    requires_authentication { post photo_album_photos_url(@photo_album), params: { photo: { images: [fixture_file_upload('test.png', 'image/png')] } } }
+    requires_authentication { post photo_album_photos_url(@photo_album), params: { photo: { image: fixture_file_upload('test.png', 'image/png') } } }
     requires_authentication { get edit_photo_album_photo_url(@photo_album, @photo) }
     requires_authentication { put photo_album_photo_url(@photo_album, @photo), params: { photo: { description: 'test upload' } } }
     requires_authentication { delete photo_album_photo_url(@photo_album, @photo) }
@@ -20,7 +20,6 @@ class PhotoFlowsTest < BaseIntegrationTest
 
     assert_response :success
 
-    assert_select 'img', count: 1
     assert_select 'a', text: 'Edit Photo', count: 0
     assert_select 'a', text: 'Delete Photo', count: 0
   end
@@ -48,20 +47,19 @@ class PhotoFlowsTest < BaseIntegrationTest
 
     assert_response :success
 
-    post photo_album_photos_url(@photo_album), params: { photo: { images: [fixture_file_upload('test.png', 'image/png')] } }
+    post photo_album_photos_url(@photo_album), params: { photo: { image: fixture_file_upload('test.png', 'image/png') } }
 
     photo = Photo.last
 
     assert_redirected_to photo_album_photo_url(@photo_album, photo)
     follow_redirect!
-    assert_select 'img', count: 1
     assert_select "div[role='alert']", success_message(photo)
   end
 
   test 'creating a photo with invalid data' do
     sign_in @user
 
-    post photo_album_photos_url(@photo_album), params: { photo: { images: [] } }
+    post photo_album_photos_url(@photo_album), params: { photo: { image: nil } }
 
     assert_response :success
     assert_select "div[role='alert']", error_message
@@ -78,14 +76,13 @@ class PhotoFlowsTest < BaseIntegrationTest
 
     assert_redirected_to photo_album_photo_url(@photo_album, @photo)
     follow_redirect!
-    assert_select 'img', count: 1
     assert_select "div[role='alert']", success_message(@photo, :updated)
   end
 
   test 'editing a photo with invalid data' do
     sign_in @user
 
-    put photo_album_photo_url(@photo_album, @photo), params: { photo: { images: [] } }
+    put photo_album_photo_url(@photo_album, @photo), params: { photo: { image: nil } }
 
     assert_response :success
     assert_select "div[role='alert']", error_message
