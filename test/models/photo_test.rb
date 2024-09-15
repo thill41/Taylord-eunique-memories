@@ -7,6 +7,10 @@ class PhotoTest < ActiveSupport::TestCase
     should have_many_attached(:images)
   end
 
+  context 'validations' do
+    should validate_content_type_of(:images).allowing('image/png', 'image/gif', 'image/jpeg')
+  end
+
   test 'error when more than 1 cover photo is selected' do
     photo = FactoryBot.create(:photo, cover_photo: true)
     photo2 = FactoryBot.build(:photo, cover_photo: true, photo_album: photo.photo_album)

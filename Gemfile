@@ -73,6 +73,8 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
 end
+
+gem 'active_storage_validations'
 gem 'devise', '~> 4.9'
 gem 'friendly_id'
 gem 'mini_magick'

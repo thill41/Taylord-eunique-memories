@@ -6,6 +6,7 @@ class Photo < ApplicationRecord
 
   scope :cover, -> { where(cover_photo: true) }
 
+  validates :images, attached: true, content_type: %i[png jpeg gif]
   validate :only_one_cover_photo
 
   private

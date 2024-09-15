@@ -1,11 +1,13 @@
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 require 'rails/test_help'
+require 'active_storage_validations/matchers'
 require_relative 'support/authentication_helpers'
 require_relative 'support/integration_helpers'
 
 module ActiveSupport
   class TestCase
+    extend ActiveStorageValidations::Matchers
     include FactoryBot::Syntax::Methods
 
     Shoulda::Matchers.configure do |config|
