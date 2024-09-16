@@ -1,5 +1,6 @@
 .homepage {
-  section::after {
+  margin-bottom: 15px;
+  section:not(:last-child)::after {
     content: '';
     display: block;
     width: 50%;
