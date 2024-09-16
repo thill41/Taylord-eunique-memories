@@ -7,3 +7,39 @@ h1 {
 body {
   background-color: black;
 }
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 0 auto;
+  margin-top: 20px;
+
+  .primary-button {
+    background-color: #6DDFC7;
+    color: black;
+    border: 1px solid #6DDFC7;
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 3px;
+
+    &:hover {
+      background-color: black;
+      color: #6DDFC7;
+    }
+  }
+
+  .secondary-button {
+    background-color: black;
+    color: #6DDFC7;
+    border: 1px solid #6DDFC7;
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 3px;
+
+    &:hover {
+      background-color: #6DDFC7;
+      color: black;
+    }
+  }
+}

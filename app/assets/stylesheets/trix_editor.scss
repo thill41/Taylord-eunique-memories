@@ -2,17 +2,18 @@
 
 // Style the entire toolbar container
 trix-toolbar {
-  background-color: #6DDFC7; //#f5f5f5; // Full toolbar background
-  border-radius: 5px; // Optional: Rounded corners for the toolbar
-  padding: 10px; // Optional: Add padding around the toolbar
-  border: 1px solid #6DDFC7; //#ccc; // Optional: Border around the toolbar
-  display: flex; // Ensure toolbar is using flexbox layout
-  justify-content: space-between; // Distribute the button groups evenly
+  background-color: #6DDFC7;
+  border-radius: 5px;
+  padding: 10px; 
+  border: 1px solid #6DDFC7;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
 }
 
 // Style individual button groups to make them seamless
 trix-toolbar .trix-button-group {
-  margin: 0; // Remove margin between button groups
+  margin: 0; 
   padding: 0;
 }
 
@@ -22,39 +23,41 @@ trix-editor .trix-toolbar {
 
 // Style buttons
 trix-toolbar .trix-button {
-  margin: 0; // Remove spacing between buttons
-  padding: 5px 10px; // Add custom padding for buttons
-  border-radius: 3px; // Optional: Rounded corners for buttons
-  background-color: black; //transparent; // Transparent buttons if needed
+  margin: 0; 
+  padding: 5px 10px;
+  border-radius: 3px;
+  background-color: black;
   color: #6DDFC7;
   border: 1px solid black;
+  font-size:14px;
 }
 
 // Hover effect for buttons
 trix-toolbar .trix-button:hover {
-  background-color: #eaeaea; // Change background on hover
+  background-color: #6DDFC7;
+  color: black;
 }
 
 // Customizing the editor content area
 .trix-content {
-  // background-color: #fff; // Change background color
-  padding: 10px; // Add padding
-  // border: 1px solid #ccc; // Add border
-  border-radius: 5px; // Rounded corners
-  min-height: 200px; // Set minimum height
+  
+  padding: 10px;
+  
+  border-radius: 5px;
+  min-height: 200px;
 }
 
 // Adjust text formatting
 .trix-content h1,
 .trix-content h2,
 .trix-content h3 {
-  font-family: 'Arial', sans-serif; // Change font 
-  color: #333; // Change text color
+  font-family: "Lato", "Calibri", "Helvetica", sans-serif; 
+  color: #333;
 }
 
 .trix-content p {
-  line-height: 1.6; // Increase line spacing
-  margin-bottom: 15px; // Add spacing between paragraphs
+  line-height: 1.6;
+  margin-bottom: 15px;
 }
 
 // Hide attachment caption (file name)
@@ -62,15 +65,14 @@ trix-editor .attachment__caption {
   display: none;
 }
 
-// Responsive design
-
 .trix-content {
   width: 100%;
   max-width: 100%;
+  border: 1px solid #6DDFC7;
 }
-
+// TODO figure out how to collapse the toolbar on mobile so it doesn't have to be hidden
 @media (max-width: 600px) {
-  .trix-content {
-    padding: 5px;
+  trix-toolbar {
+    display: none;
   }
 }
