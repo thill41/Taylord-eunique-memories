@@ -12,7 +12,9 @@ class Photo < ApplicationRecord
   private
 
   def only_one_cover_photo
-    return unless cover_photo && photo_album.photos.cover.count.positive?
+    return unless cover_photo &&
+                  cover_photo.in?(photo_album.photos.cover) &&
+                  photo_album.photos.cover.count.positive?
 
     errors.add(:cover_photo, 'only one cover photo is allowed')
   end

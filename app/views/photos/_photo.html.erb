@@ -1,5 +1,15 @@
-<%= image_tag photo.image %>
+<div class="card">
+  <%= image_tag photo.image, class: 'card-img', alt: photo.description %>
 
-<p><%= photo.description %></p>
+  <div class="card-body">
+    <p class="text-center">
+      <%= photo.description %>
+    </p>
 
-<%= photo_actions(photo) %>
+    <div class="actions">
+      <%= photo_actions(photo) %>
+    </div>
+    
+  </div>
+
+</div>

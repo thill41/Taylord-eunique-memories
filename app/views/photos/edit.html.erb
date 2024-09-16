@@ -3,9 +3,9 @@
 <h1>Edit Photo for  <%= @photo_album.title %> Album</h1>
 
 <%= form_with model: [@photo_album, @photo], data: { turbo: false } do |f| %>
-  <div class="field">
+  <div class="form-floating mb-3">
     <%= f.label :conver_photo %>
-    <%= f.check_box :cover_photo %>
+    <%= f.check_box :cover_photo, class: "form-control" %>
   </div>
   
   <div class="field">
