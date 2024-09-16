@@ -1,51 +1,69 @@
-<section class="hero">
-  <h1>Your Hero Image with Example Text</h1>
-</section>
-
-<section class="slogan">
-  <h2>Our Mission: Delivering Excellence Every Day</h2>
-  <p>Stuff about the company goes here</p>
-</section>
-
-<section class="section">
-  <h3>Packages</h3>
-  <div class="card-container">
-    <div class="card">
-      <h3>Basic Package</h3>
-      <p>Great for individuals</p>
-      <div class="price">$19.99/month</div>
-      <p>Includes basic features.</p>
+<main class="container-fluid homepage">
+  <section class="hero">
+    <div class="hero-image">
+      <div class="hero-content">
+        <h1>Your Hero Image with Example Text</h1>
+      </div>
     </div>
-    
-    <div class="card">
-      <h3>Standard Package</h3>
-        <p>Ideal for small teams</p>
-        <div class="price">$49.99/month</div>
-        <p>Includes all basic features plus additional tools.</p>
-     </div>
-    
-    <div class="card">
-        <h3>Premium Package</h3>
-        <p>Best for businesses</p>
-        <div class="price">$99.99/month</div>
-        <p>Includes all features plus premium support.</p>
+  </section>
+
+  <section class="slogan">
+    <h2>Our Mission: Delivering Excellence Every Day</h2>
+    <p>Stuff about the company goes here</p>
+  </section>
+
+  <section>
+    <h3>Packages</h3>
+    <div class="packages-container">
+      <div class="card mb-3">
+        <div class="card-header">Basic Package</div>
+        <div class="card-body">
+          <h4 class="card-title">Great for individuals</h4>
+          <div class="card-text">
+            <p>$19.99/month</p>
+            <p>Includes basic features.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-3" style="max-width: 20rem;">
+        <div class="card-header">Standard Package</div>
+        <div class="card-body">
+          <h4 class="card-title">Ideal for small teams</h4>
+          <div class="card-text">
+            <p>$49.99/montth</p>
+            <p>Includes all basic features plus additional tools</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-3" style="max-width: 20rem;">
+        <div class="card-header">Premium Package</div>
+        <div class="card-body">
+          <h4 class="card-title">Best for businesses</h4>
+          <div class="card-text">
+            <p>$99.99/month</p>
+            <p>Includes all features plus premium support.</p>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="section">
-  <h3>Gallery</h3>
-  <div class="gallery">
-    <img src="https://picsum.photos/200/300" alt="Photo 1">
-    <img src="https://picsum.photos/200/300" alt="Photo 2">
-    <img src="https://picsum.photos/200/300" alt="Photo 3">
-    <img src="https://picsum.photos/200/300" alt="Photo 4">
-  </div>
-</section>
+  <section>
+    <h3>Gallery</h3>
+    <div class="gallery-container">
+      <%= image_tag "https://picsum.photos/200/300", alt: "Photo 1", class: "img-thumbnail" %>
+      <%= image_tag "https://picsum.photos/200/300", alt: "Photo 2", class: "img-thumbnail" %>
+      <%= image_tag "https://picsum.photos/200/300", alt: "Photo 3", class: "img-thumbnail" %>
+      <%= image_tag "https://picsum.photos/200/300", alt: "Photo 4", class: "img-thumbnail" %>
+    </div>
+  </section>
 
-<section class="section">
-  <div class="button-container">
-    <a href="mailto:contact@example.com" class="button contact-btn">Contact Me Now</a>
-    <a href="#buy-now" class="button buy-btn">Buy Now</a>
-  </div>
-</section>
+  <section>
+    <div class="button-container">
+      <a href="mailto:contact@example.com" class="button contact-btn">Contact Me Now</a>
+      <a href="#buy-now" class="button buy-btn">Buy Now</a>
+    </div>
+  </section>
+</main>
