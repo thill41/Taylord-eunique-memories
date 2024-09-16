@@ -1,1 +1,13 @@
-<%= link_to photo_album.title, photo_album %>
+<div class="card">
+  <%# TODO see about getting rid of `.first` %>
+  <%= image_tag((photo_album.photos.cover.first.nil? ? "default_album_image.jpg" : photo_album.photos.cover.first.image),
+    alt: "cover photo for #{photo_album.title}",
+    class: "card-img") %>
+                                                     
+  <div class="card-body">
+    <h5 class="text-center"><%= photo_album.title %></h5>
+    <div class="actions">
+      <%= link_to "View Album", photo_album_path(photo_album), class: 'primary-button' %>
+    </div>
+  </div>
+</div>

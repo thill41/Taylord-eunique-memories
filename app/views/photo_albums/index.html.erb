@@ -1,11 +1,13 @@
-<h1>Photo Gallery</h1>
+<main class="container-fluid photo-albums">
+  <h1 class="text-center mb-4">Photo Gallery</h1>
 
-<% @photo_albums.in_groups_of(5, nil) do |group| %>
-  <div class="row">
-    <% group.each do |photo_album| %>
-      <div class="col-md-2">
-        <%= render photo_album if photo_album %>
-      </div>
-    <% end %>
-  </div>
-<% end %>
+  <% @photo_albums.in_groups_of(3, nil) do |group| %>
+    <div class="row-container">
+      <% group.each do |photo_album| %>
+        <div class="col-md-2">
+          <%= render photo_album if photo_album %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</main>
