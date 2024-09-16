@@ -3,10 +3,9 @@ Rails.application.routes.draw do
   
   root to: 'pages#index'
 
-  # GET    /about(.:format)
   # GET    /about/edit(.:format)
   # PATCH  /about(.:format)
-  resource :abouts, only: %i[show edit update], path: 'about'
+  resource :about, only: %i[show edit update]
   resources :photo_albums do
     resources :photos, except: %i[index]
   end

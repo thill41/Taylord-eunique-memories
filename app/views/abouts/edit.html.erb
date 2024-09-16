@@ -1,14 +1,14 @@
 <main class="container-fluid">
   <h1 class="text-center">Edit About</h1>
 
-  <%= form_with model: @about, url: abouts_path, method: :patch do |f| %>
+  <%= form_with model: @about, url: about_path, method: :patch do |f| %>
     <div class="field">
       <%= f.label :content %>
       <%= f.rich_text_area :content %>
     </div>
 
     <div class="actions">
-      <%= link_to :Cancel, abouts_path, class: 'secondary-button' %>
+      <%= link_to :Cancel, about_path, class: 'secondary-button' %>
       <%= f.submit class: "primary-button" %>
     </div>
   <% end %>

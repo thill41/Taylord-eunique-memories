@@ -6,7 +6,7 @@ module PhotoAlbumsHelper
   end
 
   def cancel_button(photo_album)
-    link_to 'Cancel', (photo_album.persisted? ? photo_album_path(photo_album) : photo_albums_path), class: 'btn btn-secondary'
+    link_to 'Cancel', (photo_album.persisted? ? photo_album_path(photo_album) : photo_albums_path), class: 'secondary_button'
   end
 
   def photo_actions(photo)

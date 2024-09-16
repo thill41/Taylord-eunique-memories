@@ -8,7 +8,7 @@ class AboutsController < ApplicationController
 
   def update
     if @about.update(about_params)
-      redirect_to abouts_path, success: success_message(@about)
+      redirect_to about_path, success: success_message(@about)
     else
       flash_error_message
       render :edit

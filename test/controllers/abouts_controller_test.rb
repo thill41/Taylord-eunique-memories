@@ -7,7 +7,7 @@ class AboutsControllerTest < BaseIntegrationTest
   end
 
   test 'GET show' do
-    get abouts_url
+    get about_url
 
     assert_response :success
   end
@@ -15,7 +15,7 @@ class AboutsControllerTest < BaseIntegrationTest
   test 'GET edit' do
     sign_in @user
 
-    get edit_abouts_url
+    get edit_about_url
 
     assert_response :success
   end
@@ -23,15 +23,15 @@ class AboutsControllerTest < BaseIntegrationTest
   test 'PATCH update success' do
     sign_in @user
 
-    patch abouts_url, params: { about: { content: 'New content' } }
+    patch about_url, params: { about: { content: 'New content' } }
     assert_flash(:success)
-    assert_redirected_to abouts_url
+    assert_redirected_to about_url
   end
 
   test 'PATCH update failure' do
     sign_in @user
 
-    patch abouts_url, params: { about: { content: '' } }
+    patch about_url, params: { about: { content: '' } }
     
     assert_response :success
     assert_flash(:error)
