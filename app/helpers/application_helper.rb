@@ -61,7 +61,6 @@ module ApplicationHelper
 
   def signed_in_links(options)
     links = []
-    links << { name: 'Edit About', path: edit_about_path, args: { class: "nav_link #{'active' if current_page?(edit_about_path)}" } } if current_page?(about_path)
 
     if current_page?(photo_albums_path)
       links << { name: 'New Gallery', path: new_photo_album_path, args: { class: "nav_link #{'active' if current_page?(new_photo_album_path)}" } }

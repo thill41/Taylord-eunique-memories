@@ -2,4 +2,8 @@
   <h1 class="text-center">About Us</h1>
 
   <%= @about.content %>
+
+  <div class="actions">
+    <%= link_to 'Edit', edit_about_path(@about), class: 'primary-button' if user_signed_in? %>
+  </div>
 </main>

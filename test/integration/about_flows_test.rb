@@ -23,7 +23,6 @@ class AboutFlowsTest < BaseIntegrationTest
     get '/about'
 
     assert_response :success
-    assert_select 'a', text: 'Edit About'
   end
 
   test 'GET /about/edit' do 
