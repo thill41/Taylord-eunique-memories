@@ -12,6 +12,5 @@
   <% end %>
 
   <div class="actions">
-    <%= link_to "Back to Albums", photo_albums_path, class: 'secondary-button' %>
-    <%= link_to "New Photo", new_photo_album_photo_path(@photo_album), class: 'primary-button' %>
+    <%= new_photo_button(@photo_album) %>
 </main>

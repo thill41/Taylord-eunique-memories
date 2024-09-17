@@ -88,7 +88,6 @@ module ApplicationHelper
     return links if album.id.blank?
 
     if current_page?(photo_album_path(album))
-      links << { name: 'New Photo', path: new_photo_album_photo_path(album), args: { class: "nav-link #{'active' if current_page?(new_photo_album_photo_path(album))}" } }
       links << { name: 'Edit Gallery', path: edit_photo_album_path(album), args: { class: "nav-link #{'active' if current_page?(edit_photo_album_path(album))}" } }
     end
 
@@ -106,7 +105,7 @@ module ApplicationHelper
     return links if photo.id.blank?
 
     if current_page?(photo_album_photo_path(photo.photo_album, photo))
-      links << { name: 'Delete Photo', path: photo_album_photo_path(photo.photo_album, photo), args: { data: { turbo_method: :delete }, class: 'nav-link' } }
+      links << { name: "Back to #{photo.photo_album.title}", path: photo_album_path(photo.photo_album), args: { class: 'nav-link' } }
     end
 
     links
