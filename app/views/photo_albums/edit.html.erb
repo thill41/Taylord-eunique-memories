@@ -1,3 +1,7 @@
-<h1>Edit <%= @photo_album.title %></h1>
+<%= render 'layouts/error_messages_for', obj: @photo_album %>
 
-<%= render 'form'%>
+<div class="container-fluid">
+  <h1 class="text-center">Edit <%= @photo_album.title %></h1>
+
+  <%= render 'form'%>  
+</div>

@@ -63,7 +63,7 @@ module ApplicationHelper
     links = []
 
     if current_page?(photo_albums_path)
-      links << { name: 'New Gallery', path: new_photo_album_path, args: { class: "nav_link #{'active' if current_page?(new_photo_album_path)}" } }
+      links << { name: 'New Gallery', path: new_photo_album_path, args: { class: "nav-link #{'active' if current_page?(new_photo_album_path)}" } }
     end
 
     if (album = options[:photo_album]).present?
@@ -75,11 +75,11 @@ module ApplicationHelper
     end
 
     links << { name: 'Sign Out', path: destroy_user_session_path, args: { data: { turbo_method: :delete }, class: 'nav-link' } }
-    links
+    links.flatten
   end
 
   def signed_out_links
-    [{ name: 'Sign In', path: new_user_session_path, args: { class: 'nav_link' } }]
+    [{ name: 'Sign In', path: new_user_session_path, args: { class: 'nav-link' } }]
   end
 
   def album_links(album)
@@ -88,8 +88,8 @@ module ApplicationHelper
     return links if album.id.blank?
 
     if current_page?(photo_album_path(album))
-      links << { name: 'New Photo', path: new_photo_album_photo_path(album), args: { class: "nav_link #{'active' if current_page?(new_photo_album_photo_path(album))}" } }
-      links << { name: 'Edit Gallery', path: edit_photo_album_path(album), args: { class: "nav_link #{'active' if current_page?(edit_photo_album_path(album))}" } }
+      links << { name: 'New Photo', path: new_photo_album_photo_path(album), args: { class: "nav-link #{'active' if current_page?(new_photo_album_photo_path(album))}" } }
+      links << { name: 'Edit Gallery', path: edit_photo_album_path(album), args: { class: "nav-link #{'active' if current_page?(edit_photo_album_path(album))}" } }
     end
 
     return links unless album.respond_to?(:id)

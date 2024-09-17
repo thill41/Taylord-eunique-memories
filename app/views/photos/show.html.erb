@@ -1,1 +1,35 @@
-<%= render @photo %>
+<div class="container-fluid">
+  <div class="w-75 p-3 mx-auto">
+    <div class="row mb-4">
+      <div class="col-12 text-center">
+        <h2 class="mb-4">Photo from <%= @photo_album.title %></h2>
+        <div class="photo-image">
+          <%= image_tag @photo.image, class: 'img-fluid img-thumbnail', alt: @photo.description %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-12 text-center">
+        <h4>Description</h4>
+        <div>
+          <p><%= @photo.description %></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-12 text-center">
+        <h4>Cover Photo Status</h4>
+        <div>
+          <p><%= @photo.cover_photo ? 'This is the cover photo' : 'Not the cover photo' %></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <%= link_to "Back to Album", photo_album_path(@photo_album), class: 'secondary-button' %>
+      <%= link_to "Edit Photo", edit_photo_album_photo_path(@photo_album, @photo), class: 'primary-button' %>
+    </div>
+  </div>
+</div>

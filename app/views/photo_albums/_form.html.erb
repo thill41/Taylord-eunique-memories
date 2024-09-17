@@ -1,12 +1,12 @@
-<%= form_with model: @photo_album, data: { turbo: false } do |f| %>
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+<%= form_with model: @photo_album, data: { turbo: false }, class: "w-75 p-3 mx-auto" do |f| %>
+  <div class="form-floating mb-3">
+    <%= f.text_field :title, class: "form-control", placeholder: "Add title for photo album." %>
+    <%= f.label :title, class: 'text-dark' %>
   </div>
   
   <div class="actions">
-    <%= link_to 'Cancel', (@photo_album.persisted? ? photo_album_path(@photo_album) : @photo_albums_path), class: 'secondary_button' %>
-    <%= f.submit %>
+    <%= link_to 'Cancel', (@photo_album.new_record? ?  photo_albums_path : photo_album_path(@photo_album)), class: 'secondary-button' %>
+    <%= f.submit class: 'primary-button' %>
   </div>
 
 <% end %>
