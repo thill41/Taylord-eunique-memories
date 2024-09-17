@@ -3,16 +3,24 @@ class PhotosController < ApplicationController
   before_action :set_photo_album
   before_action :set_photo, only: %i[show edit update destroy]
   
-  def show; end
+  def show
+    authorize @photo
+  end
 
   def new
     @photo = @photo_album.photos.new
+    authorize @photo
   end
 
-  def edit; end
+  def edit
+    authorize @photo
+  end
 
   def create
     @photo = @photo_album.photos.new(photo_params)
+
+    authorize @photo
+
     @photo.user = current_user
 
     if @photo.save
@@ -23,6 +31,8 @@ class PhotosController < ApplicationController
   end
   
   def update
+    authorize @photo
+
     if @photo.update(photo_params)
       redirect_to photo_album_photo_url(@photo_album, @photo), success: success_message(@photo, :updated)
     else
@@ -31,6 +41,8 @@ class PhotosController < ApplicationController
   end
 
   def destroy
+    authorize @photo
+    
     @photo.destroy
 
     redirect_to @photo_album, success: success_message(@photo, :deleted)

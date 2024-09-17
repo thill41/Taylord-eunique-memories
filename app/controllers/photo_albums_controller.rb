@@ -10,12 +10,18 @@ class PhotoAlbumsController < ApplicationController
 
   def new
     @photo_album = PhotoAlbum.new
+
+    authorize @photo_album
   end
 
-  def edit; end
+  def edit
+    authorize @photo_album
+  end
 
   def create
     @photo_album = current_user.photo_albums.new(photo_album_params)
+    
+    authorize @photo_album
 
     if @photo_album.save
       redirect_to @photo_album, success: success_message(@photo_album)
@@ -25,6 +31,8 @@ class PhotoAlbumsController < ApplicationController
   end
   
   def update
+    authorize @photo_album
+
     if @photo_album.update(photo_album_params)
       redirect_to @photo_album, success: success_message(@photo_album, :updated)
     else
@@ -33,6 +41,8 @@ class PhotoAlbumsController < ApplicationController
   end
   
   def destroy
+    authorize @photo_album
+    
     @photo_album.destroy
 
     redirect_to photo_albums_url, success: success_message(@photo_album, :deleted)
