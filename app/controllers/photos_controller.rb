@@ -4,7 +4,10 @@ class PhotosController < ApplicationController
   before_action :set_photo, only: %i[show edit update destroy]
   
   def show
-    authorize @photo
+    skip_authorization
+    
+    @previous_photo = @photo_album.photos.where('id < ?', @photo.id).last
+    @next_photo = @photo_album.photos.where('id > ?', @photo.id).first
   end
 
   def new

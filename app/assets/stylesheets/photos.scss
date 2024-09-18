@@ -1,0 +1,205 @@
+// .lightbox-overlay {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   background: rgba(0, 0, 0, 0.8);
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   z-index: 1000;
+
+//   .lightbox-close {
+//     position: absolute;
+//     top: 20px;
+//     right: 20px;
+
+//     .close-button {
+//       color: #6DDFC7;
+//       font-size: 3em;
+//       text-decoration: none;
+//       background: rgba(0, 0, 0, 0.5);
+//       padding: 10px 15px;
+//       border-radius: 50%;
+//       cursor: pointer;
+//       transition: transform 0.2s;
+
+//       &:hover {
+//         transform: scale(1.2);
+//       }
+//     }
+//   }
+
+//   .lightbox-content {
+//     position: relative;
+
+//     .lightbox-navigation {
+//       display: flex;
+//       align-items: center;
+//       justify-content: space-between;
+//       width: 90%;
+
+//       .full-size-photo {
+//         max-width: 90%;
+//         max-height: 90%;
+//       }
+
+//       .nav-arrow {
+//         color: #6DDFC7;
+//         font-size: 4em;
+//         cursor: pointer;
+//         text-decoration: none;
+//         background: rgba(0, 0, 0, 0.5);
+//         padding: 20px;
+//         border-radius: 50%;
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//         transition: transform 0.2s;
+
+//         &:hover {
+//           transform: scale(1.2);
+//         }
+
+//         &.left-arrow {
+//           margin-right: 20px;
+//         }
+
+//         &.right-arrow {
+//           margin-left: 20px;
+//         }
+//       }
+
+//       .nav-arrow-placeholder {
+//         width: 70px;
+//       }
+//     }
+
+//     .lightbox-actions {
+//       position: absolute;
+//       bottom: 10px;
+//       display: flex;
+//       gap: 10px;
+
+//       .action-button {
+//         color: white;
+//         background: rgba(0, 0, 0, 0.5);
+//         padding: 10px;
+//         text-decoration: none;
+//         border-radius: 5px;
+//       }
+//     }
+//   }
+// }
+
+// .overlay-button {
+//   margin-top: 10px;
+//   display: block;
+// }
+
+.lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+
+  .lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+    .close-button {
+      color: #6DDFC7;
+      font-size: 3em;
+      text-decoration: none;
+      background: rgba(0, 0, 0, 0.5); // Keep this for the close button
+      padding: 10px 15px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: transform 0.2s;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  .lightbox-content {
+    position: relative;
+
+    .lightbox-navigation {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 90%;
+      max-width: 1000px; // Max width to control the overall size
+
+      .full-size-photo {
+        width: 100%;
+        height: auto;
+        max-width: 800px; // Set a max width for the images
+        max-height: 600px; // Set a max height for the images
+        object-fit: contain; // Maintain aspect ratio while fitting the size
+      }
+
+      .nav-arrow {
+        color: #6DDFC7;
+        font-size: 4em;
+        cursor: pointer;
+        text-decoration: none;
+        // Remove the background color and padding
+        // background: rgba(0, 0, 0, 0.5); 
+        // padding: 20px;
+        // Keep border-radius for rounded shape
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: transform 0.2s;
+
+        &:hover {
+          transform: scale(1.2);
+        }
+
+        &.left-arrow {
+          margin-right: 20px;
+        }
+
+        &.right-arrow {
+          margin-left: 20px;
+        }
+      }
+
+      .nav-arrow-placeholder {
+        width: 70px;
+      }
+    }
+
+    .lightbox-actions {
+      position: absolute;
+      bottom: 10px;
+      display: flex;
+      gap: 10px;
+
+      .action-button {
+        color: white;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 10px;
+        text-decoration: none;
+        border-radius: 5px;
+      }
+    }
+  }
+}
+
+.overlay-button {
+  margin-top: 10px;
+  display: block;
+}

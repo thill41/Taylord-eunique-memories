@@ -6,7 +6,9 @@ class PhotoAlbumsController < ApplicationController
     @photo_albums = PhotoAlbum.all
   end
 
-  def show; end
+  def show
+    @photos = @photo_album.photos
+  end
 
   def new
     @photo_album = PhotoAlbum.new
