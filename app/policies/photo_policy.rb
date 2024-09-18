@@ -10,17 +10,21 @@ class PhotoPolicy < ApplicationPolicy
     # def resolve
     #   scope.all
     # end
-
-    def show?
-      true
-    end
-    def new?
-      user.present?
-    end
-
-    alias create? new?
-    alias edit? new?
-    alias update? new?
-    alias destroy? new?
   end
+
+  def show?
+    true
+  end
+
+  def new?
+    user.present?
+  end
+
+  def edit?
+    user == record.user
+  end
+
+  alias create? new?
+  alias update? edit?
+  alias destroy? edit?
 end

@@ -10,7 +10,7 @@ class PhotoAlbumsController < ApplicationController
 
   def new
     @photo_album = PhotoAlbum.new
-
+    
     authorize @photo_album
   end
 
@@ -42,7 +42,7 @@ class PhotoAlbumsController < ApplicationController
   
   def destroy
     authorize @photo_album
-    
+
     @photo_album.destroy
 
     redirect_to photo_albums_url, success: success_message(@photo_album, :deleted)

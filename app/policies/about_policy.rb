@@ -10,11 +10,11 @@ class AboutPolicy < ApplicationPolicy
     # def resolve
     #   scope.all
     # end
-
-    def edit?
-      user.present?
-    end
-
-    alias update? edit?
   end
+  
+  def edit?
+    user.present?
+  end
+
+  alias update? edit?
 end
