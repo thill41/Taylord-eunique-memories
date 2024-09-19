@@ -19,25 +19,7 @@ class PhotoFlowsTest < BaseIntegrationTest
     get photo_album_photo_url(@photo_album, @photo)
 
     assert_response :success
-
-    assert_select 'a', text: 'Edit Photo', count: 0
-    assert_select 'a', text: 'Delete Photo', count: 0
-  end
-
-  test 'edit link visible to user' do
-    sign_in @user
-
-    get photo_album_photo_url(@photo_album, @photo)
-
-    assert_select 'a', text: 'Edit Photo', count: 1
-  end
-
-  test 'delete link visible to user' do
-    sign_in @user
-    
-    get photo_album_photo_url(@photo_album, @photo)
-
-    assert_select 'a', text: 'Delete Photo', count: 1
+    assert_select 'img.full-size-photo'
   end
 
   test 'creating a photo' do

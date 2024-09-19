@@ -33,7 +33,7 @@ class PhotoAlbumFlowsTest < BaseIntegrationTest
     get photo_album_url(@photo_album)
 
     assert_response :success
-    assert_select 'h1', text: @photo_album.title
+    assert_select 'h1', text: "#{@photo_album.title} Photos"
     assert_select 'a', text: 'New Photo', count: 0
     assert_select 'a', text: 'New Gallery', count: 0
   end
@@ -59,7 +59,7 @@ class PhotoAlbumFlowsTest < BaseIntegrationTest
 
     assert_redirected_to photo_album_url(photo_album)
     follow_redirect!
-    assert_select 'h1', text: 'New Album'
+    assert_select 'h1', text: 'New Album Photos'
     assert_select "div[role='alert']", success_message(photo_album)
   end
 
@@ -91,7 +91,7 @@ class PhotoAlbumFlowsTest < BaseIntegrationTest
 
     assert_redirected_to photo_album_url(@photo_album)
     follow_redirect!
-    assert_select 'h1', text: 'Updated Album'
+    assert_select 'h1', text: 'Updated Album Photos'
     assert_select "div[role='alert']", success_message(@photo_album, :updated)
   end
 
