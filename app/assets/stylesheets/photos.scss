@@ -199,7 +199,18 @@
   }
 }
 
-.overlay-button {
-  margin-top: 10px;
-  display: block;
+.overlay-actions {
+  margin-top: 14px;
+  .overlay-button {
+    background-color: #6DDFC7;
+    color: black;
+    border: 1px solid #6DDFC7;
+    padding: auto 52px;
+    border-radius: 3px;
+  
+    &:hover {
+      background-color: black;
+      color: #6DDFC7;
+    }
+  }
 }

@@ -25,7 +25,7 @@ module PhotoAlbumsHelper
     return unless user_signed_in?
     
     tag.div class: 'actions' do
-      "#{link_to :Edit, edit_photo_album_photo_path(photo.photo_album, photo), class: 'primary-button'} #{button_to :Delete, photo_album_photo_path(photo.photo_album, photo), method: :delete, class: 'secondary-button', data: { turbo_confirm: 'Are you sure you? This can\'t be undone!' }}".html_safe
+      "#{link_to :Edit, edit_photo_album_photo_path(photo.photo_album, photo), class: 'secondary-button'} #{button_to :Delete, photo_album_photo_path(photo.photo_album, photo), method: :delete, class: 'secondary-button', data: { turbo_confirm: 'Are you sure you? This can\'t be undone!' }}".html_safe
     end
   end
 end

@@ -7,10 +7,14 @@
     </p>
 
     <div class="actions">
-      <%= link_to "View", photo_album_photo_path(@photo_album, photo), data: { turbo_frame: "lightbox" }, class: "overlay-button" %>
       <%= photo_actions(photo) %>
     </div>
     
+    <div class="overlay-actions">
+      <%= link_to "View", photo_album_photo_path(@photo_album, photo), data: { turbo_frame: "lightbox" }, 
+                                                                    class: "overlay-button" %>
+
+      </div>
   </div>
 
 </div>
