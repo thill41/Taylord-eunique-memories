@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # GET    /about/edit(.:format)
   # PATCH  /about(.:format)
   resource :about, only: %i[show edit update]
+  resource :contact, only: %i[new create]
   resources :photo_albums do
     resources :photos, except: %i[index]
   end

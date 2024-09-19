@@ -1,0 +1,40 @@
+<main class="contact-email">
+<div class="email-container">
+    <div class="header">
+      <h1>Event Inquiry</h1>
+    </div>
+
+    <div class="details">
+      <h2>Event Information</h2>
+      <p>
+        <strong>Name:</strong> <%= @first_name %> <%= @last_name %>
+      </p>
+
+      <p>
+        <strong>Event Date:</strong> <%= @event_date %>
+      </p>
+
+      <p>
+        <strong>Event Type:</strong> <%= @event_type %>
+      </p>
+
+      
+      <p>
+        <strong>Phone:</strong> <%= @phone %>
+      </p>
+
+      <p>
+        <strong>Reference:</strong> <%= @reference %>
+      </p>
+    </div>
+
+    <div class="details">
+      <h2>Message</h2>
+      <p><%= @message %></p>
+    </div>
+
+    <div class="footer">
+      <p>Thank you for contacting us! We will get back to you shortly.</p>
+    </div>
+  </div>
+</main>

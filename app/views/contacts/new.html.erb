@@ -1,0 +1,59 @@
+<main class="container mt-5 contact-form">
+  <%= render "layouts/error_messages_for", obj: @contact %>
+
+  <main class="d-flex flex-column flex-md-row">
+    <div class="col-md-6 mb-4 mb-md-0">
+      <img src="<%= asset_path('contact.png') %>" alt="Contact Us" class="img-fluid w-100 rounded" id="contact-image">
+    </div>
+    
+    <div class="col-md-6 ms-md-4">
+      <h1>Questions?</h1>
+
+      <%= form_with model: @contact, url: contact_path, method: :post, local: true do |f| %>
+        <div class="form-floating mb-3">
+            <%= f.select :event_type, options_for_select(['Wedding', 'Birthday', 'Graduation', 'Corporate Party','Conference', 'Other']), { prompt: 'Select an option' }, class: 'form-control', required: true %>
+          <%= f.label :event_type, class: 'form-label' %>
+        </div>
+
+        <div class="form-floating mb-3">
+          <%= f.text_field :first_name, class: 'form-control', placeholder: 'First Name', required: true %>
+          <%= f.label :first_name, class: 'form-label' %>
+        </div>
+
+        <div class="form-floating mb-3">
+          <%= f.text_field :last_name, class: 'form-control', placeholder: 'Last Name', required: true %>
+          <%= f.label :last_name, class: 'form-label' %>
+        </div>
+
+        <div class="form-floating mb-3">
+          <%= f.date_field :event_date, class: 'form-control', placeholder: 'Event Date', required: true %>
+          <%= f.label :event_date, class: 'form-label' %>
+        </div>
+
+        <div class="form-floating mb-3">
+          <%= f.email_field :email, class: 'form-control', placeholder: 'Your Email', required: true %>
+          <%= f.label :email, class: 'form-label' %>
+        </div>
+
+        <div class="form-floating mb-3">
+          <%= f.telephone_field :phone, class: 'form-control', placeholder: 'Your Phone', required: true %>
+          <%= f.label :phone, class: 'form-label' %>
+        </div>
+
+        <div class="form-floating mb-3">
+          <%= f.text_field :reference, class: 'form-control', placeholder: 'How did you hear about us?', required: true %>
+          <%= f.label :reference, "How did you hear about us", class: 'form-label' %>
+        </div>
+
+        <div class="form-floating mb-3">
+          <%= f.text_area :message, class: 'form-control', placeholder: 'Your Message', rows: 5, required: true, id: :message %>
+          <%= f.label :message, class: 'form-label' %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit 'Send Message', class: 'primary-button' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</main>
