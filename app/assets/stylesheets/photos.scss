@@ -1,102 +1,75 @@
-// .lightbox-overlay {
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100%;
-//   background: rgba(0, 0, 0, 0.8);
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   z-index: 1000;
+.photos {
+  .row-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    gap: 2rem;
+    margin-bottom: 20px;
+  }
 
-//   .lightbox-close {
-//     position: absolute;
-//     top: 20px;
-//     right: 20px;
+  .card {
+    width: 300px;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
 
-//     .close-button {
-//       color: #6DDFC7;
-//       font-size: 3em;
-//       text-decoration: none;
-//       background: rgba(0, 0, 0, 0.5);
-//       padding: 10px 15px;
-//       border-radius: 50%;
-//       cursor: pointer;
-//       transition: transform 0.2s;
+  .card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 
-//       &:hover {
-//         transform: scale(1.2);
-//       }
-//     }
-//   }
+  .card-body {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    z-index: 1; 
+    background-color: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    
+    h5,
+    p {
+      color: #6DDFC7;
+    }
 
-//   .lightbox-content {
-//     position: relative;
+    .actions {
+      margin-top: 10px;
+    }
 
-//     .lightbox-navigation {
-//       display: flex;
-//       align-items: center;
-//       justify-content: space-between;
-//       width: 90%;
+    .overlay-actions {
+      margin-top: 14px;
+      .overlay-button {
+        background-color: #6DDFC7;
+        color: black;
+        border: 1px solid #6DDFC7;
+        padding: 5px 52px;
+        border-radius: 3px;
+      
+        &:hover {
+          background-color: black;
+          color: #6DDFC7;
+        }
+      }
+    }
+  }
 
-//       .full-size-photo {
-//         max-width: 90%;
-//         max-height: 90%;
-//       }
-
-//       .nav-arrow {
-//         color: #6DDFC7;
-//         font-size: 4em;
-//         cursor: pointer;
-//         text-decoration: none;
-//         background: rgba(0, 0, 0, 0.5);
-//         padding: 20px;
-//         border-radius: 50%;
-//         display: flex;
-//         justify-content: center;
-//         align-items: center;
-//         transition: transform 0.2s;
-
-//         &:hover {
-//           transform: scale(1.2);
-//         }
-
-//         &.left-arrow {
-//           margin-right: 20px;
-//         }
-
-//         &.right-arrow {
-//           margin-left: 20px;
-//         }
-//       }
-
-//       .nav-arrow-placeholder {
-//         width: 70px;
-//       }
-//     }
-
-//     .lightbox-actions {
-//       position: absolute;
-//       bottom: 10px;
-//       display: flex;
-//       gap: 10px;
-
-//       .action-button {
-//         color: white;
-//         background: rgba(0, 0, 0, 0.5);
-//         padding: 10px;
-//         text-decoration: none;
-//         border-radius: 5px;
-//       }
-//     }
-//   }
-// }
-
-// .overlay-button {
-//   margin-top: 10px;
-//   display: block;
-// }
+  .card:hover .card-body {
+    opacity: 1;
+  }
+}
 
 .lightbox-overlay {
   position: fixed;
@@ -195,22 +168,6 @@
         text-decoration: none;
         border-radius: 5px;
       }
-    }
-  }
-}
-
-.overlay-actions {
-  margin-top: 14px;
-  .overlay-button {
-    background-color: #6DDFC7;
-    color: black;
-    border: 1px solid #6DDFC7;
-    padding: auto 52px;
-    border-radius: 3px;
-  
-    &:hover {
-      background-color: black;
-      color: #6DDFC7;
     }
   }
 }
