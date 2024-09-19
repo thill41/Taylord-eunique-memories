@@ -4,6 +4,7 @@ class PhotoAlbumFlowsTest < BaseIntegrationTest
   setup do
     @user = create(:user)
     @photo_album = create(:photo_album, user: @user)
+    @photo = create(:photo, user: @user, photo_album: @photo_album)
   end
 
   test 'require authentication' do
@@ -36,14 +37,22 @@ class PhotoAlbumFlowsTest < BaseIntegrationTest
     assert_select 'h1', text: "#{@photo_album.title} Photos"
     assert_select 'a', text: 'New Photo', count: 0
     assert_select 'a', text: 'New Gallery', count: 0
+    # Photo card actions in overlay
+    assert_select 'a', text: 'View'
+    assert_select 'a', text: 'Edit', count: 0
+    assert_select 'a', text: 'Delete', count: 0
   end
 
-  test 'new photo link visible to user' do
+  test 'user can manage photos' do
     sign_in @user
 
     get photo_album_url(@photo_album)
     
-    assert_select 'a', text: 'New Photo', count: 1
+    assert_select 'a', text: 'New Photo'
+    # Photo card actions in overlay
+    assert_select 'a', text: 'Edit'
+    assert_select 'button', text: 'Delete'
+    assert_select 'a', text: 'View'
   end
 
   test 'creating a new photo album' do
