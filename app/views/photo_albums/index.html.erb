@@ -1,5 +1,9 @@
 <main class="container-fluid photo-albums">
   <h1 class="text-center mb-4">Photo Gallery</h1>
+  
+  <div class="admin-actions">
+    <%= link_to 'New Gallery', new_photo_album_path if policy(PhotoAlbum).create? %>
+  </div>
 
   <% @photo_albums.in_groups_of(3, nil) do |group| %>
     <div class="row-container">

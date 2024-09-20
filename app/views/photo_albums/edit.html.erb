@@ -3,5 +3,12 @@
 <div class="container-fluid">
   <h1 class="text-center">Edit <%= @photo_album.title %> Gallery</h1>
 
+   <div class="admin-actions">
+    <%= link_to 'Back to Gallery', @photo_album %>
+    <%= button_to 'Delete Gallery', @photo_album, method: :delete,
+                                                  data: { turbo_confirm: t('destroy.confirm') },
+                                                  class: 'button-link' if policy(@photo_album).destroy? %>
+  </div>
+
   <%= render 'form'%>  
 </div>

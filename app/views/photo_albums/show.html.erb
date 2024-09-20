@@ -1,6 +1,12 @@
 <main class="container-fluid photos">
   <h1 class="text-center"><%= @photo_album.title %> Photos</h1>
-
+  
+  <div class="admin-actions">
+    <%= link_to 'Back to Listing', photo_albums_path(@photo_album) %>
+    <%= link_to 'Edit Gallery', edit_photo_album_path(@photo_album) if policy(@photo_album).edit? %>
+    <%= link_to 'Add Photo', new_photo_album_photo_path(@photo_album) if policy(Photo).create? %>
+  </div>
+  
   <%= no_photos_message(@photo_album) %>
 
   <% @photo_album.photos.in_groups_of(5, nil) do |group| %>
@@ -12,8 +18,4 @@
   <% end %>
 
   <turbo-frame id="lightbox"></turbo-frame>
-  
-  <div class="actions">
-    <%= new_photo_button(@photo_album) %>
-  </div>
 </main>
