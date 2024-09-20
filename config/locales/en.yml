@@ -34,6 +34,8 @@ en:
   error: There were errors!
   notice: Notice!
   alert: Alert!
+  destroy:
+    confirm: Are you sure? This can't be undone!
   # active_storage_validation
   errors:
     messages:
