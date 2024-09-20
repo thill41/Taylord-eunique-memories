@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resource :about, only: %i[show edit update]
   resource :contact, only: %i[new create]
   resources :photo_albums do
-    resources :photos, except: %i[index]
+    resources :photos
   end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

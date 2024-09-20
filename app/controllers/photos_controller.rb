@@ -3,6 +3,11 @@ class PhotosController < ApplicationController
   before_action :set_photo_album
   before_action :set_photo, only: %i[show edit update destroy]
   
+  def index
+    authorize @photo_album
+    
+    @photos = @photo_album.photos
+  end
   def show
     skip_authorization
     
@@ -27,7 +32,7 @@ class PhotosController < ApplicationController
     @photo.user = current_user
 
     if @photo.save
-      redirect_to photo_album_photo_url(@photo_album, @photo), success: success_message(@photo)
+      redirect_to photo_album_photos_url(@photo_album), success: success_message(@photo)
     else
       render :new, error: flash_error_message
     end

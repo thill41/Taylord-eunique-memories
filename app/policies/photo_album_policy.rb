@@ -12,6 +12,10 @@ class PhotoAlbumPolicy < ApplicationPolicy
     # end
   end
 
+  def index?
+    user.present?
+  end
+
   def new?
     user.present?
   end

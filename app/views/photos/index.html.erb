@@ -1,0 +1,17 @@
+<div class="container-fluid mt-4">
+    <h1 class="text-center mb-4">Photos Index</h1>
+    
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+      <% @photos.each do |photo| %>
+        <div class="col">
+          <%= image_tag photo.image, class: "img-fluid", alt: photo.description %>
+          <div class="admin-actions">
+            <%= link_to 'Edit', edit_photo_album_photo_path(photo.photo_album, photo) %>
+            <%= button_to 'Delete', photo_album_photo_path(photo.photo_album, photo), method: :delete,
+                                                                                data: { turbo_confirm: t('destroy.confirm') },
+                                                                                class: "button-link" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
