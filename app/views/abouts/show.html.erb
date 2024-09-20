@@ -1,9 +1,7 @@
 <main class="container-fluid about">  
-  <h1 class="text-center">About Us</h1>
+  <div class="admin-actions">
+    <%= link_to 'Edit', edit_about_path if policy(@about).edit? %>
+  </div>
 
   <%= @about.content %>
-
-  <div class="actions">
-    <%= link_to 'Edit', edit_about_path(@about), class: 'primary-button' if user_signed_in? %>
-  </div>
 </main>

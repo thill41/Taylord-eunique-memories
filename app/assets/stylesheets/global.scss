@@ -25,6 +25,29 @@ label.form-label {
   color: black;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.container-fluid {
+  .admin-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    a {
+      color: #6DDFC7
+    }
+  }
+}
+
 .actions {
   display: flex;
   justify-content: center;

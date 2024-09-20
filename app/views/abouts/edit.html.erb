@@ -3,13 +3,13 @@
 
   <%= form_with model: @about, url: about_path, method: :patch do |f| %>
     <div class="field">
-      <%= f.label :content %>
+      <%= f.label :content, class: "sr-only" %>
       <%= f.rich_text_area :content %>
     </div>
 
     <div class="actions">
       <%= link_to :Cancel, about_path, class: 'secondary-button' %>
-      <%= f.submit class: "primary-button" %>
+      <%= f.submit class: "primary-button" if policy(@about).update? %>
     </div>
   <% end %>
 </main>
