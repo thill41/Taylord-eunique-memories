@@ -5,7 +5,8 @@ h3,
 h4,
 h5,
 h6
-a {
+a,
+button {
   font-family: "Lato", "Calibri", "Helvetica", sans-serif;
   color: #6DDFC7;
 }
@@ -44,6 +45,24 @@ label.form-label {
     margin-bottom: 10px;
     a {
       color: #6DDFC7
+    }
+
+    a:not(:last-child):after {
+      content: " | ";
+    }
+
+    .button-link {
+      background: none;
+      border: none;
+      color: #6DDFC7;
+      text-decoration: none;
+      cursor: pointer;
+      padding: 0;
+      font-size: 16px;
+      
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 }
