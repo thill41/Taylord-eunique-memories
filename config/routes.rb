@@ -3,8 +3,6 @@ Rails.application.routes.draw do
   
   root to: 'pages#index'
 
-  # GET    /about/edit(.:format)
-  # PATCH  /about(.:format)
   resource :about, only: %i[show edit update]
   resource :contact, only: %i[new create]
   resources :photo_albums do
