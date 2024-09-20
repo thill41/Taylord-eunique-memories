@@ -30,11 +30,13 @@ module ApplicationHelper
     render('layouts/error_messages_for', obj:)
   end
 
-  def authentication_action
-    if user_signed_in?
-      link_to('Sign Out', destroy_user_session_path, data: { turbo_method: :delete })
-    else
-      link_to('Sign In', new_user_session_path) + ' | ' + link_to('Sign Up', new_user_registration_path)
+  def authentication_actions
+    content_tag(:li, class: 'nav-item') do
+      if user_signed_in?
+        link_to('Sign Out', destroy_user_session_path, data: { turbo_method: :delete }, class: 'nav-link')
+      else
+        link_to('Sign In', new_user_session_path, class: 'nav-link')
+      end
     end
   end
 
