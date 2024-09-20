@@ -21,7 +21,7 @@
     </div>
 
     <div class="actions">
-      <%= cancel_photo_link(@photo) %>
+      <%= link_to(:Cancel, (photo.new_record? ? photo.photo_album : photo_album_photos_path(photo.photo_album)), class: 'secondary-button') %>
       <%= f.submit class: "primary-button" %>
     </div>
   <% end %>

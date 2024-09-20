@@ -15,7 +15,7 @@
     </div>
 
     <div class="actions">
-      <%= link_to :Cancel, photo_album_photo_path(@photo_album, @photo), class: 'secondary-button' %>
+      <%= link_to :Cancel, photo_album_photos_path(@photo_album), class: 'secondary-button' %>
       <%= f.submit class: 'primary-button' %>
     </div>
   <% end %>
