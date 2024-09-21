@@ -1,6 +1,5 @@
 <div class="card">
-  <%# TODO see about getting rid of `.first` %>
-  <%= image_tag((photo_album.photos.cover.first.nil? ? "default_album_image.jpg" : photo_album.photos.cover.first.image),
+  <%= image_tag(photo_album.photo.attached? ? url_for(photo_album.photo) : "default_album_image.jpg", 
     alt: "cover photo for #{photo_album.title}",
     class: "card-img") %>
                                                      

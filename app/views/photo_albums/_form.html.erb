@@ -9,6 +9,11 @@
     <%= f.label :title, class: 'text-dark' %>
   </div>
   
+  <div class="input-group mb-3">
+    <%= f.file_field :photo, multipart: true, class: "form-control" %>
+    <%= f.label :photo, "Cover Photo", class: "input-group-text" %>
+  </div>
+
   <div class="actions">
     <%= link_to 'Cancel', (@photo_album.new_record? ?  photo_albums_path : photo_album_path(@photo_album)), class: 'secondary-button' %>
     <%= f.submit "Save Gallery", class: 'primary-button' %>

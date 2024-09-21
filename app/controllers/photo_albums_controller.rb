@@ -63,6 +63,6 @@ class PhotoAlbumsController < ApplicationController
   end
 
   def photo_album_params
-    params.require(:photo_album).permit(:title, :feature)
+    params.require(:photo_album).permit(:title, :feature, :photo)
   end
 end
