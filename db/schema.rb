@@ -61,6 +61,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_21_012745) do
     t.string "statement", default: "", null: false
     t.decimal "price", precision: 10, scale: 2, default: "0.0", null: false
     t.text "description"
+    t.string "position", default: "", null: false
+    t.boolean "enabled", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
