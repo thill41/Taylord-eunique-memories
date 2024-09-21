@@ -1,0 +1,14 @@
+.package {
+  .package-list th, .package-list td {
+    padding: 10px 20px;
+  }
+  
+  .package-list {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .package-list th, .package-list td {
+    border: 1px solid #ddd;
+  }
+}

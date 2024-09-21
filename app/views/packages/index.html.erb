@@ -1,0 +1,22 @@
+<main class="container-fluid package">
+  <h1>Package List</h1>
+
+  <table class="package-list">
+    <thead>
+      <tr class="text-center">
+        <th>Name</th>
+        <th>Price</th>
+        <th>Frequency</th>
+        <th>Enabled</th>
+        <th>
+          <div class="admin-actions">
+            <%= link_to :New, new_package_path %>
+          </div>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @packages %>
+  </table>  
+    </tbody>
+</main>
