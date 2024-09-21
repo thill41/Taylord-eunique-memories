@@ -2,7 +2,7 @@ class PackagesController < ApplicationController
   before_action :set_package, only: %i[show edit update destroy]
 
   def index
-    authorize Packagex
+    authorize Package
     @packages = Package.enabled.order(:position)
   end
 
