@@ -63,8 +63,10 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_21_012745) do
     t.text "description"
     t.string "position", default: "", null: false
     t.boolean "enabled", default: false, null: false
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_packages_on_user_id"
   end
 
   create_table "photo_albums", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
