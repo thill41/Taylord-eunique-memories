@@ -8,4 +8,5 @@ class User < ApplicationRecord
   
   has_one :about, dependent: :destroy
   has_many :photo_albums, dependent: :destroy
+  has_many :packages, dependent: :destroy
 end
