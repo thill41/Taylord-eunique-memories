@@ -2,20 +2,26 @@ class PackagesController < ApplicationController
   before_action :set_package, only: %i[show edit update destroy]
 
   def index
-    skip_authorization
+    authorize Packagex
     @packages = Package.enabled.order(:position)
   end
 
-  def show; end
+  def show
+    authorize @package
+  end
   
   def new
     @package = Package.new
+    authorize @package
   end
   
-  def edit; end
+  def edit
+    authorize @package
+  end
 
   def create
     @package = Package.new(package_params)
+    authorize @package
     @package.user = current_user
 
     if @package.save
@@ -27,6 +33,7 @@ class PackagesController < ApplicationController
   end
 
   def update
+    authorize @package
     if @package.update(package_params)
       redirect_to @package, success: success_message(@package, :updated)
     else
@@ -36,6 +43,7 @@ class PackagesController < ApplicationController
   end
 
   def destroy
+    authorize @package
     @package.destroy
 
     redirect_to packages_url, success: success_message(@package, :deleted)
