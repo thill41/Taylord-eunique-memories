@@ -3,7 +3,7 @@ class PhotoAlbumsController < ApplicationController
   before_action :set_photo_album, only: %i[show edit update destroy]
   
   def index
-    @photo_albums = PhotoAlbum.all.paginate(page: params[:page], per_page: 10)
+    @photo_albums = PhotoAlbum.all.paginate(page: params[:page], per_page: 12)
   end
 
   def show
