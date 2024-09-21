@@ -28,7 +28,8 @@ class PhotoAlbumsController < ApplicationController
     if @photo_album.save
       redirect_to @photo_album, success: success_message(@photo_album)
     else
-      render :new, error: flash_error_message
+      flash_error_message
+      render :new
     end
   end
   
@@ -38,7 +39,8 @@ class PhotoAlbumsController < ApplicationController
     if @photo_album.update(photo_album_params)
       redirect_to @photo_album, success: success_message(@photo_album, :updated)
     else
-      render :edit, error: flash_error_message
+      flash_error_message
+      render :edit
     end
   end
   

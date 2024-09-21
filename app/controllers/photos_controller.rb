@@ -35,7 +35,8 @@ class PhotosController < ApplicationController
     if @photo.save
       redirect_to edit_photo_album_photo_url(@photo_album, @photo), success: success_message(@photo)
     else
-      render :new, error: flash_error_message
+      flash_error_message
+      render :new
     end
   end
   
@@ -45,7 +46,8 @@ class PhotosController < ApplicationController
     if @photo.update(photo_params)
       redirect_to edit_photo_album_photo_url(@photo_album, @photo), success: success_message(@photo, :updated)
     else
-      render :edit, error: flash_error_message
+      flash_error_message
+      render :edit
     end
   end
 
