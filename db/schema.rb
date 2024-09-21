@@ -64,6 +64,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_21_012745) do
     t.string "position", default: "", null: false
     t.boolean "enabled", default: false, null: false
     t.bigint "user_id"
+    t.string "frequency", default: "month", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_packages_on_user_id"

@@ -8,6 +8,7 @@ class CreatePackages < ActiveRecord::Migration[7.2]
       t.string :position, null: false, default: ''
       t.boolean :enabled, null: false, default: false
       t.references :user
+      t.string :frequency, null: false, default: 'month'
       t.timestamps
     end
   end
