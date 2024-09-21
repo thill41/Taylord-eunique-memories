@@ -28,6 +28,8 @@
 #       enabled: "ON"
 
 en:
+  app:
+    title: Taylor'd Eunique Memories
   hello: "Hello world"
   authorization: You are not authorized to perform this action.
   success: "%{class_name} was successfully %{status}."
