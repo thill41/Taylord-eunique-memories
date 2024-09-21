@@ -28,3 +28,15 @@ About.create!(
     title: "Photo Gallery #{n}"
   )
 end
+
+3.times do |n|
+  user.packages.create!(
+    name: "Package #{n}",
+    statement: 'The best thing ever...',
+    price: rand(1..100),
+    description: 'Get it now or never!',
+    enabled: true,
+    frequency: 'monthly',
+    position: n
+  )
+end
