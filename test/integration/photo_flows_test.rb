@@ -33,7 +33,7 @@ class PhotoFlowsTest < BaseIntegrationTest
 
     photo = Photo.last
 
-    assert_redirected_to photo_album_photo_url(@photo_album, photo)
+    assert_redirected_to edit_photo_album_photo_url(@photo_album, photo)
     follow_redirect!
     assert_select "div[role='alert']", success_message(photo)
   end
@@ -56,7 +56,7 @@ class PhotoFlowsTest < BaseIntegrationTest
 
     put photo_album_photo_url(@photo_album, @photo), params: { photo: { description: 'test upload' } }
 
-    assert_redirected_to photo_album_photo_url(@photo_album, @photo)
+    assert_redirected_to edit_photo_album_photo_url(@photo_album, @photo)
     follow_redirect!
     assert_select "div[role='alert']", success_message(@photo, :updated)
   end

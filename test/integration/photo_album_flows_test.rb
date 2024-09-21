@@ -48,7 +48,7 @@ class PhotoAlbumFlowsTest < BaseIntegrationTest
 
     get photo_album_url(@photo_album)
     
-    assert_select 'a', text: 'New Photo'
+    assert_select 'a', text: 'Add Photo'
     # Photo card actions in overlay
     assert_select 'a', text: 'Edit'
     assert_select 'button', text: 'Delete'
@@ -118,7 +118,7 @@ class PhotoAlbumFlowsTest < BaseIntegrationTest
 
     get edit_photo_album_url(@photo_album)
 
-    assert_select 'a', text: 'Delete Gallery', count: 1
+    assert_select 'button', text: 'Delete Gallery', count: 1
   end
 
   test 'destroying a photo album' do
