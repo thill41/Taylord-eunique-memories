@@ -24,6 +24,9 @@ a {
 
 label.form-label {
   color: black;
+  &.light-label {
+    color: #6DDFC7;
+  }
 }
 
 .title-bar {
