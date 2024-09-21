@@ -6,7 +6,12 @@
   <%= form_with model: [@photo_album, @photo], data: { turbo: false }, class: "w-75 p-3 mx-auto" do |f| %>
     <div class="form-check mb-3">
       <%= f.check_box :cover_photo, class: "form-check-input" %>
-      <%= f.label :conver_photo, class: "form-label" %>
+      <%= f.label :conver_photo, class: "form-label light-label" %>
+    </div>
+
+    <div class="form-floating mb-3">
+      <%= f.date_field :event_date, class: "form-control" %>
+      <%= f.label :event_date, class: "form-label" %>
     </div>
     
     <div class="form-floating mb-3">

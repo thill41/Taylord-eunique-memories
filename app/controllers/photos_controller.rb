@@ -33,7 +33,7 @@ class PhotosController < ApplicationController
     @photo.user = current_user
 
     if @photo.save
-      redirect_to photo_album_photos_url(@photo_album), success: success_message(@photo)
+      redirect_to edit_photo_album_photo_url(@photo_album, @photo), success: success_message(@photo)
     else
       render :new, error: flash_error_message
     end
@@ -43,7 +43,7 @@ class PhotosController < ApplicationController
     authorize @photo
 
     if @photo.update(photo_params)
-      redirect_to photo_album_photo_url(@photo_album, @photo), success: success_message(@photo, :updated)
+      redirect_to edit_photo_album_photo_url(@photo_album, @photo), success: success_message(@photo, :updated)
     else
       render :edit, error: flash_error_message
     end
@@ -68,6 +68,6 @@ class PhotosController < ApplicationController
   end
 
   def photo_params
-    params.require(:photo).permit(:cover_photo, :description, :image)
+    params.require(:photo).permit(:cover_photo, :description, :image, :event_date)
   end
 end

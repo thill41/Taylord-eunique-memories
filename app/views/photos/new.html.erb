@@ -5,23 +5,28 @@
 
 
   <%= form_with model: [@photo_album, @photo], data: { turbo: false }, class: "w-75 p-3 mx-auto" do |f| %>
+    <div class="form-check mb-3">
+      <%= f.check_box :cover_photo, class: "form-check-input" %>
+      <%= f.label :cover_photo, class: "form-label light-label" %>
+    </div>
+
     <div class="input-group mb-3">
       <%= f.file_field :image, multipart: true, class: "form-control" %>
       <%= f.label :image, class: "input-group-text" %>
     </div>
     
-    <div class="form-check mb-3">
-      <%= f.check_box :cover_photo, class: "form-check-input" %>
-      <%= f.label :conver_photo, class: "form-label" %>
+    <div class="form-floating mb-3">
+      <%= f.date_field :event_date, class: "form-control" %>
+      <%= f.label :event_date, class: "form-label" %>
     </div>
-    
+
     <div class="form-floating mb-3">
       <%= f.text_field :description, class: "form-control", placeholder: "Add brief photo decription." %>
       <%= f.label :description, 'Description (Optional)', class: "form-label text-dark" %>
     </div>
 
     <div class="actions">
-      <%= link_to(:Cancel, (photo.new_record? ? photo.photo_album : photo_album_photos_path(photo.photo_album)), class: 'secondary-button') %>
+      <%= link_to(:Cancel, (@photo.new_record? ? @photo.photo_album : photo_album_photos_path(@photo.photo_album)), class: 'secondary-button') %>
       <%= f.submit class: "primary-button" %>
     </div>
   <% end %>
