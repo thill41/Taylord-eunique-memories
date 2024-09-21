@@ -9,3 +9,4 @@ import "@popperjs/core";
 import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
 import "bootstrap"; // Import Bootstrap JS
 import * as bootstrap from "bootstrap"
+import "@fortawesome/fontawesome-free/css/all.css"
