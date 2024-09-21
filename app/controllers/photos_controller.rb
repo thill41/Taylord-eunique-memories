@@ -5,9 +5,10 @@ class PhotosController < ApplicationController
   
   def index
     authorize @photo_album
-    
+
     @photos = @photo_album.photos
   end
+  
   def show
     skip_authorization
     
