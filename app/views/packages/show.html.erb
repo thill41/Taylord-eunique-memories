@@ -1,0 +1,8 @@
+<main class="container-fluid homepage">
+  <div class="admin-actions">
+    <%= link_to :Edit, edit_package_path(@package) %>
+    <%= button_to "Delete", @package, method: :delete, data: { turbo_confirm: t("destroy.confirm") }, class: "button-link" %>
+  </div>
+
+  <%= render @package %>
+</main>

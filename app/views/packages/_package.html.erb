@@ -1,12 +1,11 @@
-<tr>
-  <td><%= package.name %></td>
-  <td><%= package.price %></td>
-  <td><%= package.frequency %></td>
-  <td><%= package.enabled ? 'Yes' : 'No' %></td>
-  <td>
-    <div class="admin-actions">
-      <%= link_to :Edit, edit_package_path(package) %>
-      <%= link_to :Delete, package, method: :delete, data: { tubo_confirm: t("destroy.confirm") } %>
+  <div class="packages-container">
+  <div class="card mb-3">
+    <div class="card-header"><%= package.name %></div>
+    <div class="card-body">
+      <h4 class="card-title"><%= package.statement %></h4>
+      <div class="card-text">
+        <p><%= package.price %>/<%= package.frequency%></p>
+        <p><%= package.description %></p>
+      </div>
     </div>
-  </td>
-</tr>
+  </div>
