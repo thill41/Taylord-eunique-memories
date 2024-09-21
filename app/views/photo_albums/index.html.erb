@@ -8,9 +8,7 @@
   <% @photo_albums.in_groups_of(3, nil) do |group| %>
     <div class="row-container">
       <% group.each do |photo_album| %>
-        <div class="col-md-2">
-          <%= render photo_album if photo_album %>
-        </div>
+        <%= render photo_album if photo_album %>
       <% end %>
     </div>
   <% end %>  
