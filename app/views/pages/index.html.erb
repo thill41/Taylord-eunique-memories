@@ -26,11 +26,19 @@
 
   <section>
     <h3 class="text-center">Gallery</h3>
-    <div class="gallery-container">
-      <%= image_tag "https://picsum.photos/200/300", alt: "Photo 1", class: "img-thumbnail" %>
-      <%= image_tag "https://picsum.photos/200/300", alt: "Photo 2", class: "img-thumbnail" %>
-      <%= image_tag "https://picsum.photos/200/300", alt: "Photo 3", class: "img-thumbnail" %>
-      <%= image_tag "https://picsum.photos/200/300", alt: "Photo 4", class: "img-thumbnail" %>
+
+    <div class="admin-actions">
+      <%= link_to :Manage, photo_albums_path if user_signed_in? %>
+    </div>
+    
+    <div class="photo-albums">
+      <% @photo_albums.in_groups_of(3, nil).each do |group| %>
+        <div class="row-container">
+          <% group.each do |photo_album| %>
+            <%= render partial: 'photo_albums/photo_album', locals: { photo_album: photo_album } if photo_album%>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </section>
 

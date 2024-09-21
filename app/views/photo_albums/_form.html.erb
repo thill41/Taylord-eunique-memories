@@ -1,4 +1,9 @@
 <%= form_with model: @photo_album, data: { turbo: false }, class: "w-75 p-3 mx-auto" do |f| %>
+  <div class="form-check mb-3">
+    <%= f.check_box :feature, class: "form-check-input", id: "featured" %>
+    <%= f.label :feature, "Featured", class: "form-check-label" %>
+  </div>
+
   <div class="form-floating mb-3">
     <%= f.text_field :title, class: "form-control", placeholder: "Add title for photo album." %>
     <%= f.label :title, class: 'text-dark' %>
@@ -8,5 +13,4 @@
     <%= link_to 'Cancel', (@photo_album.new_record? ?  photo_albums_path : photo_album_path(@photo_album)), class: 'secondary-button' %>
     <%= f.submit "Save Gallery", class: 'primary-button' %>
   </div>
-
 <% end %>
