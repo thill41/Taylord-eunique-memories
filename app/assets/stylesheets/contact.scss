@@ -1,11 +1,35 @@
 .contact-form {
+  .form-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
   #contact-image {
-    height: 776px;
+    height: 500px;
     object-fit: cover;
 
+    @media (max-width: 767px) {
+      display: none;
+    }
   }
 
   #message {
-    height: 200px;
+    height: 100px;
   }
-}
+
+  .contact-actions {
+    .primary-button {
+      background-color: #6DDFC7;
+      color: black;
+      border: 1px solid #6DDFC7;
+      font-size: 14px;
+      padding: 10px 25px;
+      border-radius: 3px;
+  
+      &:hover {
+        background-color: black;
+        color: #6DDFC7;
+      }
+    }
+  }
+} 

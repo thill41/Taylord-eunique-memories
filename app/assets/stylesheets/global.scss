@@ -7,7 +7,7 @@ h5,
 h6
 a,
 button {
-  font-family: "Lato", "Calibri", "Helvetica", sans-serif;
+  font-family: 'Alegreya SC', Georgia, 'Times New Roman', Palatino, serif;
   color: #6DDFC7;
 }
 
@@ -21,9 +21,22 @@ a {
     text-decoration: underline;
   }
 }
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: $header-font-size;
+  ;
+}
+
+.sub-header p {
+  text-align: left;
+  margin-bottom: 20px;
+  font-size: $large-font-size;
+}
 
 label.form-label {
-  color: black;
+  font-size: $large-font-size;
+  color: #6DDFC7;
   &.light-label {
     color: #6DDFC7;
   }
