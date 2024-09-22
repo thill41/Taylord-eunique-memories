@@ -3,7 +3,7 @@ class PackagesController < ApplicationController
 
   def index
     authorize Package
-    @packages = Package.enabled.order(:position)
+    @packages = Package.all
   end
 
   def show
