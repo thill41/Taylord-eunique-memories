@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_09_21_162955) do
+ActiveRecord::Schema[7.2].define(version: 2024_09_23_161333) do
   create_table "abouts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
@@ -76,6 +76,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_21_162955) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "feature", default: false, null: false
+    t.date "event_date"
     t.index ["user_id"], name: "index_photo_albums_on_user_id"
   end
 
@@ -85,7 +86,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_21_162955) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.date "event_date"
     t.index ["photo_album_id"], name: "index_photos_on_photo_album_id"
     t.index ["user_id"], name: "index_photos_on_user_id"
   end

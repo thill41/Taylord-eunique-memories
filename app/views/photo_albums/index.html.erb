@@ -14,9 +14,9 @@
                   <div class="photo-album-overlay">
                     <div class="overlay-content">
                       <h2 class="overlay-title"><%= photo_album.title %></h2>
-                      <p class="overlay-date">0/00/0000</p>
+                      <p class="overlay-date"><%= photo_album.event_date.strftime("%m/%d/%Y") if photo_album.event_date %></p>
                       <div class="actions">
-                        <%= link_to 'View Gallery', photo_album %>
+                        <%= link_to 'View Gallery', photo_album, class: "primary-button" %>
                       </div>
                     </div>
                   </div>

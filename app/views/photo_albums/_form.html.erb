@@ -8,6 +8,11 @@
     <%= f.text_field :title, class: "form-control", placeholder: "Add title for photo album." %>
     <%= f.label :title, class: 'text-dark' %>
   </div>
+
+     <div class="form-floating mb-3">
+      <%= f.date_field :event_date, class: "form-control" %>
+      <%= f.label :event_date, class: "form-label" %>
+    </div>
   
   <div class="input-group mb-3">
     <%= f.file_field :photo, multipart: true, class: "form-control" %>
