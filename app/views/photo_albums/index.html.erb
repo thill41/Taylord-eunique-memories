@@ -1,17 +1,31 @@
-<main class="container-fluid photo-albums">
-  <h1 class="text-center mb-4">Photo Gallery</h1>
-  
-  <div class="admin-actions">
-    <%= link_to 'New Gallery', new_photo_album_path if policy(PhotoAlbum).create? %>
+<div class="container-fluid photo-albums">
+  <div class="photo-albums-container">
+    <% @photo_albums.each_slice((@photo_albums.size / 3.0).ceil) do |group| %>
+    <% @count += 1 %>
+      <div class="column-row">
+        <ul class="list-unstyled">
+          <% group.each do |photo_album| %>
+            <li class="photo-album-list-item <%= "taller-item" if @count.even? %>">
+              <div>
+                <%= link_to photo_album do %>
+                  <%= image_tag((photo_album.photo.attached? ? photo_album.photo : "default_album_image.jpg"), 
+                      class: 'photo-album-image',
+                      alt: 'Album Cover') %>
+                  <div class="photo-album-overlay">
+                    <div class="overlay-content">
+                      <h2 class="overlay-title"><%= photo_album.title %></h2>
+                      <p class="overlay-date">0/00/0000</p>
+                      <div class="actions">
+                        <%= link_to 'View Gallery', photo_album %>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
   </div>
-
-  <% @photo_albums.in_groups_of(3, nil) do |group| %>
-    <div class="row-container">
-      <% group.each do |photo_album| %>
-        <%= render photo_album if photo_album %>
-      <% end %>
-    </div>
-  <% end %>  
-</main>
-
-<%= will_paginate @photo_albums, class: 'apple_pagination' %>
+</div>

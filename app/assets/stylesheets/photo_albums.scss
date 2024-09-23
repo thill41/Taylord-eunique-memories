@@ -1,57 +1,110 @@
 .photo-albums {
-  .row-container {
+  .photo-albums-container {
+    margin: auto;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row;
     justify-content: center;
-    gap: 20px;
-    margin-bottom: 20px;
-  }
+    box-sizing: border-box;
+    width: 60%;
+    gap: 10px;
 
-  .card {
-    flex: 0 1 300px;
-    max-width: 100%;
-    height: 400px;
-    position: relative;
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-
-  .card-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-
-  .card-body {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; 
-    z-index: 1; 
-    background-color: rgba(0, 0, 0, 0.7);
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-
-    h5,
-    p {
-      color: #6DDFC7;
+    @media (max-width: 768px) {
+      flex-direction: column;
+      width: 90%;
     }
 
-    .actions {
-      margin-top: 10px;
-    }
-  }
+    .column-row {
+      display: flex;
+      flex-direction: column;
+      place-content: flex-start;
+      flex: 1 1 auto;
+      width: 0;
+      gap: 8px;
 
-  .card:hover .card-body {
-    opacity: 1;
+      @media (max-width: 768px) {
+        width: 100%;
+      }
+
+      .photo-album-list-item {
+        box-sizing: border-box;
+        margin: 0 0 10px;
+        min-width: 0;
+        text-align: center;
+        list-style: none;
+        position: relative;
+
+        &.taller-item {
+          margin: 0 0 10px;
+          height: 210px;
+          display: flex;
+          flex-direction: column;
+
+          @media (max-width: 768px) {
+            height: auto;
+            aspect-ratio: 16 / 9;
+          }
+        }
+
+        div {
+          flex: 1;
+          margin: 0 auto;
+
+          .photo-album-image {
+            overflow: hidden;
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 100%;
+            max-width: 400px;
+            cursor: pointer;
+            border: 0 !important;
+            outline: 0 !important;
+            transition: box-shadow 0.25s;
+            background-color: rgba(0, 0, 0, 0.1);
+
+            @media (max-width: 768px) {
+              max-width: 100%;
+              height: auto;
+              aspect-ratio: 16 / 9;
+            }
+          }
+
+          .photo-album-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.25s ease-in-out;
+
+            .overlay-content {
+              text-align: center;
+
+              .overlay-title {
+                font-size: 14px;
+                margin-bottom: 0.6rem;
+              }
+
+              .overlay-date {
+                font-size: 12px;
+                margin-bottom: 0.8rem;
+              }
+            }
+          }
+        }
+
+        &:hover .photo-album-overlay {
+          opacity: 1;
+        }
+      }
+    }
   }
 }

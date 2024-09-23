@@ -1,12 +1,14 @@
 <div class="card">
-  <%= image_tag(photo_album.photo.attached? ? url_for(photo_album.photo) : "default_album_image.jpg", 
-    alt: "cover photo for #{photo_album.title}",
-    class: "card-img") %>
-                                                     
-  <div class="card-body">
-    <h5 class="text-center"><%= photo_album.title %></h5>
-    <div class="actions">
+  <div class="card-img-wrapper">
+    <%= image_tag(photo_album.photo.attached? ? url_for(photo_album.photo) : "default_album_image.jpg", 
+      alt: "cover photo for #{photo_album.title}",
+      class: "card-img") %>
+    <div class="card-body">
+      <h5 class="card-title"><%= photo_album.title %></h5>
+      <p class="card-text">Album Description</p>
+      <div class="actions">
       <%= link_to "View Album", photo_album_path(photo_album), class: 'primary-button' %>
+    </div>
     </div>
   </div>
 </div>
