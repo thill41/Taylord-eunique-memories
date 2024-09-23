@@ -9,10 +9,15 @@
     <%= f.label :title, class: 'text-dark' %>
   </div>
 
-     <div class="form-floating mb-3">
-      <%= f.date_field :event_date, class: "form-control" %>
-      <%= f.label :event_date, class: "form-label" %>
-    </div>
+  <div class="form-floating mb-3">
+    <%= f.date_field :event_date, class: "form-control" %>
+    <%= f.label :event_date, class: "form-label" %>
+  </div>
+  
+  <div class="form-floating mb-3">
+    <%= f.text_field :photo_message, class: "form-control", placeholder: "Add title for photo album." %>
+    <%= f.label :photo_message, "Message displayed on each photo", class: 'text-dark' %>
+  </div>
   
   <div class="input-group mb-3">
     <%= f.file_field :photo, multipart: true, class: "form-control" %>

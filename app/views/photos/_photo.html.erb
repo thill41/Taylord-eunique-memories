@@ -1,23 +1,10 @@
-<div class="card">
-  <%= image_tag photo.image, class: 'card-img', alt: photo.description %>
-
-  <div class="card-body">
-    <p class="text-center">
-      <%= photo.description %>
-    </p>
-
-    <div class="admin-actions">
-      <%= link_to :Edit, edit_photo_album_photo_path(photo.photo_album, photo) if policy(photo).update? %>
-      <%= button_to :Delete, photo_album_photo_path(photo.photo_album, photo), method: :delete,
-                                                                         class: 'button-link',
-                                                                         data: { turbo_confirm: t('destroy.confirmation') } if policy(photo).destroy?%>
-
+<div class="col">
+  <div class="img-container">
+    <div class="img-wrapper">
+      <%= link_to photo_album_photo_path(@photo_album, photo), data: { turbo_frame: "lightbox" } do %>
+        <%= image_tag photo.image, alt: photo.description %>
+        <%= photo_description(photo) %>
+      <% end %>
     </div>
-    
-    <div class="overlay-actions">
-      <%= link_to "View", photo_album_photo_path(@photo_album, photo), data: { turbo_frame: "lightbox" }, 
-                                                                    class: "overlay-button" %>
-
-      </div>
   </div>
 </div>
