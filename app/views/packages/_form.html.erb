@@ -1,30 +1,34 @@
 <main class="container-fluid">
   <%= render "layouts/error_messages_for", obj: @package %>
-
   <%= form_with model: @package, local: true, data: { turbo: false } do |form| %>
-    <div class="form-check mb-3">
+    <div class="mb-3">
       <%= form.check_box :enabled, class: "form-check-input", id: "enabled" %>
       <%= form.label :enabled, "Enabled", class: "form-check-label" %>
     </div>
 
-    <div class="form-floating mb-3">
-      <%= form.text_field :name, class: "form-control", placeholder: "Name" %>
+    <div class="mb-3">
       <%= form.label :name, "Name", class: "form-label" %>
+      <%= form.text_field :name, class: "form-control", placeholder: "Name" %>
     </div>
 
-    <div class="form-floating mb-3">
+    <div class="mb-3">
+      <%= form.label :image, "Upload Image", class: "form-label" %>
+      <%= form.file_field :image, class: "form-control", multipart: true %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :price, "Price", class: "form-label" %>
       <%= form.number_field :price, class: "form-control", placeholder: "Price" %>
-      <%= form.label :price, "Price" %>
     </div>
 
-    <div class="form-floating mb-3">
-      <%= form.text_area :description, class: "form-control", style: "height: 100px", placeholder: "Description" %>
+    <div class="mb-3">
       <%= form.label :description, "Description", class: "form-label" %>
+      <%= form.text_area :description, class: "form-control", style: "height: 100px", placeholder: "Description" %>
     </div>
 
-    <div class="form-floating mb-3">
+    <div class="mb-3">
+      <%= form.label :position, "Position: Set the display order", class: "form-label" %>
       <%= form.number_field :position, class: "form-control", placeholder: "Set the order of the packages on the homepage" %>
-      <%= form.label :position, "Position", class: "form-label" %>
     </div>
 
     <div class="actions">
@@ -32,15 +36,5 @@
       <%= form.submit class: "primary-button" %>
     </div>
   <% end %>
-
-  <div id="notes" class="light-label mt-4">
-    <p>Notes:</p>
-    <p>
-      <strong>Position</strong>: The position field is used to set the order of the packages on the homepage. The package with the lowest position will be displayed first.
-    </p>
-    <p>
-      <strong>Statement</strong>: The statement field is used to display a short description of the package on the homepage.
-    </p>
-  </div>
 </main>
 

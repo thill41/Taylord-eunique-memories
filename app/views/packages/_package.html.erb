@@ -1,6 +1,6 @@
 <div class="col-auto package-item">
   <div class="card mb-3">
-    <%= image_tag("https://picsum.photos/200", class: "card-img-top", alt: package.name) %>
+    <%= image_tag (package.image.attached? ? package.image : "https://picsum.photos/200"), class: "card-img-top", alt: package.name %>
     <div class="card-header"><%= package.name %></div>
     <div class="card-body">
       <h4 class="card-title"></h4>

@@ -1,7 +1,8 @@
 class Package < ApplicationRecord
   belongs_to :user
+  has_one_attached :image
 
-  validates :name, :statement, :price, :position, presence: true
+  validates :name, :price, :position, presence: true
 
   scope :enabled, -> { where(enabled: true) }
 end
