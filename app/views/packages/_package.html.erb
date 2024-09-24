@@ -3,7 +3,6 @@
     <%= image_tag (package.image.attached? ? package.image : "https://picsum.photos/200"), class: "card-img-top", alt: package.name %>
     <div class="card-header"><%= package.name %></div>
     <div class="card-body">
-      <h4 class="card-title"></h4>
       <div class="card-text">
         <p class="package-description"><%= simple_format(package.description) %></p>
         <p class="package-starts-at">Starting at</p>
