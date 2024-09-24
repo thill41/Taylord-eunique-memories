@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class PagFlowsTest < BaseIntegrationTest
+class PageFlowsTest < BaseIntegrationTest
   test 'GET /' do
     get '/'
     
