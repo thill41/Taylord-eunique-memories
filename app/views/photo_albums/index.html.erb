@@ -1,4 +1,8 @@
 <div class="container-fluid photo-albums">
+  <div class="admin-actions">
+    <%= link_to :New, new_photo_album_path if policy(PhotoAlbum).create? %>
+  </div>
+
   <div class="photo-albums-container">
     <% @photo_albums.each_slice((@photo_albums.size / 3.0).ceil) do |group| %>
     <% @count += 1 %>
