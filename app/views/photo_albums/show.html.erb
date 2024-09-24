@@ -4,6 +4,7 @@
   <div class="admin-actions">
     <%= link_to 'Back to Listing', photo_albums_path(@photo_album) %>
     <%= link_to 'Edit Gallery', edit_photo_album_path(@photo_album) if policy(@photo_album).edit? %>
+    <%= link_to 'Manage Photos', photo_album_photos_path(@photo_album) if policy(@photo_album).edit? %>
     <%= link_to 'Add Photo', new_photo_album_photo_path(@photo_album) if policy(Photo).create? %>
   </div>
   

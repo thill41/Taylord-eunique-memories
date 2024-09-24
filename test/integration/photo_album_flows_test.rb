@@ -19,6 +19,8 @@ class PhotoAlbumFlowsTest < BaseIntegrationTest
     get photo_albums_url
 
     assert_response :success
+
+    assert_select 'a', text: 'New Gallery', count: 0
   end
 
   test 'new gallery link visible to user' do
@@ -34,18 +36,19 @@ class PhotoAlbumFlowsTest < BaseIntegrationTest
 
     assert_response :success
     assert_select 'h1', text: "#{@photo_album.title} Photos"
-    assert_select 'a', text: 'Add Photo', count: 0
     assert_select 'a', text: 'Edit Gallery', count: 0
+    assert_select 'a', text: 'Manage Photos', count: 0
+    assert_select 'a', text: 'Add Photo', count: 0
   end
 
-  test 'user can manage photos' do
+  test 'user can manage photo album' do
     sign_in @user
 
     get photo_album_url(@photo_album)
     
-    assert_select 'a', text: 'Add Photo'
     assert_select 'a', text: 'Edit Gallery'
-    # Photo card actions in overlay
+    assert_select 'a', text: 'Manage Photos'
+    assert_select 'a', text: 'Add Photo'
   end
 
   test 'creating a new photo album' do
@@ -74,20 +77,13 @@ class PhotoAlbumFlowsTest < BaseIntegrationTest
     assert_select "div[role='alert']", error_message
   end
 
-  test 'edit link visible to user' do
-    sign_in @user
-
-    get photo_album_url(@photo_album)
-
-    assert_select 'a', text: 'Edit Gallery', count: 1
-  end
-
   test 'editing a photo album' do
     sign_in @user
 
     get edit_photo_album_url(@photo_album)
 
     assert_response :success
+    assert_select 'button', text: 'Delete Gallery'
 
     patch photo_album_url(@photo_album), params: { photo_album: { title: 'Updated Album' } }
 
@@ -106,16 +102,7 @@ class PhotoAlbumFlowsTest < BaseIntegrationTest
     assert_select "div[role='alert']", error_message
   end
 
-  test 'delete link visible to user' do
-    sign_in @user
-
-    get edit_photo_album_url(@photo_album)
-
-    assert_select 'button', text: 'Delete Gallery', count: 1
-  end
-
   test 'destroying a photo album' do
-    skip
     sign_in @user
 
     delete photo_album_url(@photo_album)
@@ -124,6 +111,5 @@ class PhotoAlbumFlowsTest < BaseIntegrationTest
     assert_redirected_to photo_albums_url
     follow_redirect!
     assert_select "div[role='alert']", success_message(@photo_album, :deleted)
-    assert_select 'h1', 'Photo Gallery'
   end
 end

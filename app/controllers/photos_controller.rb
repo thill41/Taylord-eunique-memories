@@ -56,7 +56,7 @@ class PhotosController < ApplicationController
     
     @photo.destroy
 
-    redirect_to @photo_album, success: success_message(@photo, :deleted)
+    redirect_to photo_album_photos_url(@photo_album), success: success_message(@photo, :deleted)
   end
 
   private

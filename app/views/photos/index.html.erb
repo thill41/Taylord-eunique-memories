@@ -1,17 +1,33 @@
-<div class="container-fluid mt-4">
+<div class="container-fluid mt-4 package">
   <h1 class="text-center mb-4">Photos Index</h1>
-  
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-    <% @photos.each do |photo| %>
-      <div class="col">
-        <%= image_tag photo.image, class: "img-fluid", alt: photo.description %>
-        <div class="admin-actions">
-          <%= link_to 'Edit', edit_photo_album_photo_path(photo.photo_album, photo) %>
-          <%= button_to 'Delete', photo_album_photo_path(photo.photo_album, photo), method: :delete,
-                                                                              data: { turbo_confirm: t('destroy.confirm') },
-                                                                              class: "button-link" %>
-        </div>
-      </div>
-    <% end %>
-  </div>
-</div>
+
+  <table class="package-list">
+    <thead>
+      <tr class="text-center">
+        <th>Image</th>
+        <th>Description</th>
+        <th>
+          <div class="admin-actions">
+            <%= link_to 'Back to Photo Album', @photo_album %>
+            <%= link_to 'Add Photo', new_photo_album_photo_path(@photo_album) %>
+          </div>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @photos.each do |photo| %>
+        <tr class="text-center">
+          <td><%= image_tag photo.image, size: "100x100", alt: photo.description %></td>
+          <td><%= photo.description %></td>
+          <td>
+            <div class="admin-actions">
+              <%= link_to 'Edit', edit_photo_album_photo_path(photo.photo_album, photo), class: "btn btn-primary btn-sm" %>
+              <%= button_to 'Delete', photo_album_photo_path(photo.photo_album, photo), method: :delete,
+                                                                                  data: { turbo_confirm: t('destroy.confirm') },
+                                                                                  class: "btn btn-danger btn-sm" %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
