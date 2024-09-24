@@ -17,20 +17,27 @@
   .card {
     background-color: #6DDFC7;
     max-width: 10rem;
-    min-height: 35rem;
+    min-height: 30rem;
+
     .card-header {
       border-bottom: none;
     }
+
     .card-body {
+      margin: 0; /* Remove margin */
+      padding: 0; /* Optionally remove padding if needed */
+
       .card-text > p {
         color: black;
         font-size: $small-font-size;
       }
+
       .package-starts-at {
-        margin-bottom: 0; /* Remove bottom margin */
+        margin-bottom: 0;
       }
+
       .package-price {
-        margin-top: -0.35rem; /* Reduce the space between starts-at and price */
+        margin-top: -0.5rem;
       }
     }
   }
