@@ -3,6 +3,6 @@ class PagesController < ApplicationController
 
   def index
     @packages = Package.enabled.order(:position)
-    @photo_albums = PhotoAlbum.featured
+    @photo_albums = PhotoAlbum.all
   end
 end

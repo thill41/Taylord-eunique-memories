@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_09_24_180517) do
+ActiveRecord::Schema[7.2].define(version: 2024_09_24_194032) do
   create_table "abouts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
@@ -73,7 +73,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_24_180517) do
     t.string "title", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "feature", default: false, null: false
     t.date "event_date"
     t.string "photo_message"
     t.index ["user_id"], name: "index_photo_albums_on_user_id"

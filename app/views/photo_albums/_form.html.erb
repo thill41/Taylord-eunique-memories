@@ -1,27 +1,22 @@
 <%= form_with model: @photo_album, data: { turbo: false }, class: "w-75 p-3 mx-auto" do |f| %>
-  <div class="form-check mb-3">
-    <%= f.check_box :feature, class: "form-check-input", id: "featured" %>
-    <%= f.label :feature, "Featured", class: "form-check-label" %>
-  </div>
-
-  <div class="form-floating mb-3">
+  <div class="mb-3">
+    <%= f.label :title, "Title", class: "form-label" %>
     <%= f.text_field :title, class: "form-control", placeholder: "Add title for photo album." %>
-    <%= f.label :title, class: 'text-dark' %>
   </div>
 
-  <div class="form-floating mb-3">
+  <div class="mb-3">
+    <%= f.label :event_date, "Event Date", class: "form-label" %>
     <%= f.date_field :event_date, class: "form-control" %>
-    <%= f.label :event_date, class: "form-label" %>
   </div>
   
-  <div class="form-floating mb-3">
-    <%= f.text_field :photo_message, class: "form-control", placeholder: "Add title for photo album." %>
-    <%= f.label :photo_message, "Message displayed on each photo", class: 'text-dark' %>
+  <div class="mb-3">
+    <%= f.label :photo_message, "Message displayed on each photo", class: "form-label" %>
+    <%= f.text_field :photo_message, class: "form-control", placeholder: "Add message for each photo." %>
   </div>
   
-  <div class="input-group mb-3">
+  <div class="mb-3">
+    <%= f.label :photo, "Cover Photo", class: "form-label" %>
     <%= f.file_field :photo, multipart: true, class: "form-control" %>
-    <%= f.label :photo, "Cover Photo", class: "input-group-text" %>
   </div>
 
   <div class="actions">

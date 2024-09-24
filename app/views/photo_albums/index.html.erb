@@ -1,6 +1,6 @@
 <div class="container-fluid photo-albums">
   <div class="admin-actions">
-    <%= link_to :New, new_photo_album_path if policy(PhotoAlbum).create? %>
+    <%= link_to "New Gallery", new_photo_album_path if policy(PhotoAlbum).create? %>
   </div>
 
   <div class="photo-albums-container">
