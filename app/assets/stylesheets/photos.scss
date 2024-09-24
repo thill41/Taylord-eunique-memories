@@ -29,7 +29,7 @@
     font-size: 0.9rem;
     text-align: center;
     position: absolute;
-    bottom: 0; /* Align the description at the bottom */
+    bottom: 0;
     left: 0;
     right: 0;
   }
@@ -56,7 +56,7 @@
       color: #6DDFC7;
       font-size: 3em;
       text-decoration: none;
-      background: rgba(0, 0, 0, 0.5); // Keep this for the close button
+      background: rgba(0, 0, 0, 0.5);
       padding: 10px 15px;
       border-radius: 50%;
       cursor: pointer;
@@ -74,27 +74,36 @@
     .lightbox-navigation {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      width: 90%;
-      max-width: 1000px; // Max width to control the overall size
+      justify-content: center;
+      max-width: 100%;
 
-      .full-size-photo {
-        width: 100%;
-        height: auto;
-        max-width: 800px; // Set a max width for the images
-        max-height: 600px; // Set a max height for the images
-        object-fit: contain; // Maintain aspect ratio while fitting the size
+      .lightbox-container {
+        display: flex;
+        max-width: 800px;
+        margin: 0 auto;
       }
 
+      .custom-card {
+        min-width: 300px;
+        max-width: 800px;
+        height: 100%;
+        border: 1px solid #6DDFC7;
+        .card-img {
+          object-fit: cover;
+          height: 400px;
+        }
+        .photo-info-area {
+          background-color: black;
+          padding: 10px;
+          margin-left: -12px;
+        }
+      }
+      
       .nav-arrow {
         color: #6DDFC7;
         font-size: 4em;
         cursor: pointer;
         text-decoration: none;
-        // Remove the background color and padding
-        // background: rgba(0, 0, 0, 0.5); 
-        // padding: 20px;
-        // Keep border-radius for rounded shape
         border-radius: 50%;
         display: flex;
         justify-content: center;
