@@ -96,6 +96,19 @@
           background-color: black;
           padding: 10px;
           margin-left: -12px;
+          .card-body {
+            text-align: center;
+            line-height: 3rem;
+          }
+        }
+      }
+
+      .card-body > .card-link {
+        color: $secondary-color;
+        text-decoration: none;
+        font-size: $medium-font-size;
+        &:hover {
+        text-decoration: underline;
         }
       }
       

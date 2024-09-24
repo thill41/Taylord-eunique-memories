@@ -20,8 +20,17 @@
 
             <div class="col-md-6 photo-info-area">
               <div class="card-body">
-                <h5 class="card-title">Title Here</h5>
-                <p class="card-text">Some text goes here. This is where you can add more details about the image.</p>
+                <h2 class="card-title"><%= @photo_album.title %></h2>
+
+                <%= link_to ("VIEW ALL #{@photo_album.photos.count} CAPTURES &rarr;").html_safe, @photo_album, class: "card-link" %>
+
+                <p>Taylor'd Eunique Memories</p>
+
+                <%= mail_to "#{Rails.application.credentials.email.downcase}", Rails.application.credentials.email.downcase, class: "card-link" %>
+
+                <%= link_to "https://euniquememories.com", "https://euniquememories.com", class: "card-link text-lowercase" %>
+
+                <p><%= Rails.application.credentials.phone %></p>
               </div>
             </div>
           </div>

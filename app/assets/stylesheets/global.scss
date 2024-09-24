@@ -73,6 +73,10 @@ label.form-label {
       color: #6DDFC7
     }
 
+    .text-lowercase {
+      text-transform: lowercase;
+    }
+
     a:not(:last-child):after {
       content: " | ";
     }
