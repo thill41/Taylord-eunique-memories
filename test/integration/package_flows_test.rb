@@ -11,7 +11,7 @@ class PackageFlowsTest < BaseIntegrationTest
 
     requires_authentication { get packages_path }
     requires_authentication { get new_package_path }
-    requires_authentication { post packages_path params: { package: { name: 'New Package', statement: 'New Statement', price: 10, position: 1, description: 'New Description', enabled: true, frequency: 'monthly' } } }
+    requires_authentication { post packages_path params: { package: { name: 'New Package', price: 10, position: 1, description: 'New Description', enabled: true } } }
     requires_authentication { get edit_package_path(@package) }
     requires_authentication { patch package_path(@package), params: { package: { name: 'New Name' } } }
     requires_authentication { delete package_path(@package) }
@@ -27,7 +27,7 @@ class PackageFlowsTest < BaseIntegrationTest
 
     assert_response :success
 
-    post packages_path, params: { package: { name: 'New Package', statement: 'New Statement', price: 10, position: 1, description: 'New Description', enabled: true, frequency: 'monthly' } }
+    post packages_path, params: { package: { name: 'New Package', price: 10, position: 1, description: 'New Description', enabled: true } }
 
     assert_response :redirect
     assert_redirected_to package_path(Package.last)
@@ -35,7 +35,7 @@ class PackageFlowsTest < BaseIntegrationTest
   end
 
   test 'invalid create package' do
-    post packages_path, params: { package: { name: 'New Package', statement: 'New Statement', price: 10, description: 'New Description', enabled: true } }
+    post packages_path, params: { package: { name: 'New Package', price: 10, description: 'New Description', enabled: true } }
 
     assert_response :success
     assert_flash(:error)
