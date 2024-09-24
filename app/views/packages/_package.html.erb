@@ -1,11 +1,14 @@
-  <div class="packages-container">
+<div class="col-auto package-item">
   <div class="card mb-3">
+    <%= image_tag("https://picsum.photos/200", class: "card-img-top", alt: package.name) %>
     <div class="card-header"><%= package.name %></div>
     <div class="card-body">
-      <h4 class="card-title"><%= package.statement %></h4>
+      <h4 class="card-title"></h4>
       <div class="card-text">
-        <p><%= package.price %>/<%= package.frequency%></p>
-        <p><%= package.description %></p>
+        <p class="package-description"><%= simple_format(package.description) %></p>
+        <p class="package-starts-at">Starting at</p>
+        <p class="fs-3 package-price"><%= number_to_currency(package.price) %></p>
       </div>
     </div>
   </div>
+</div>

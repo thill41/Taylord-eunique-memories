@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_09_23_205033) do
+ActiveRecord::Schema[7.2].define(version: 2024_09_24_180517) do
   create_table "abouts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
@@ -58,13 +58,11 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_23_205033) do
 
   create_table "packages", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", default: "", null: false
-    t.string "statement", default: "", null: false
     t.decimal "price", precision: 10, scale: 2, default: "0.0", null: false
     t.text "description"
     t.string "position", default: "", null: false
     t.boolean "enabled", default: false, null: false
     t.bigint "user_id"
-    t.string "frequency", default: "month", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_packages_on_user_id"

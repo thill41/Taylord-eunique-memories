@@ -56,6 +56,6 @@ class PackagesController < ApplicationController
   end
 
   def package_params
-    params.require(:package).permit(:name, :statement, :price, :position, :description, :enabled, :frequency)
+    params.require(:package).permit(:name, :price, :position, :description, :enabled)
   end
 end

@@ -12,3 +12,26 @@
     border: 1px solid #ddd;
   }
 }
+
+.package-item {
+  .card {
+    background-color: #6DDFC7;
+    max-width: 10rem;
+    min-height: 35rem;
+    .card-header {
+      border-bottom: none;
+    }
+    .card-body {
+      .card-text > p {
+        color: black;
+        font-size: $small-font-size;
+      }
+      .package-starts-at {
+        margin-bottom: 0; /* Remove bottom margin */
+      }
+      .package-price {
+        margin-top: -0.35rem; /* Reduce the space between starts-at and price */
+      }
+    }
+  }
+}

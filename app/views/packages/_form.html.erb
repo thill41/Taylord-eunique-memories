@@ -13,20 +13,6 @@
     </div>
 
     <div class="form-floating mb-3">
-      <%= form.select :frequency, { Hourly: "hour", Daily: "day", Weekly: "week", Monthly: "month", Yearly: "year" },
-             {},
-             class: "form-select",
-             placeholder: "Frequency",
-             class: "form-control" %>
-      <%= form.label :frequency, "Frequency" %>
-    </div>
-
-    <div class="form-floating mb-3">
-      <%= form.text_field :statement, class: "form-control", placeholder: "Statement" %>
-      <%= form.label :statement, "Statement", class: 'form-label' %>
-    </div>
-
-    <div class="form-floating mb-3">
       <%= form.number_field :price, class: "form-control", placeholder: "Price" %>
       <%= form.label :price, "Price" %>
     </div>

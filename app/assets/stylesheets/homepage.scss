@@ -54,23 +54,6 @@
       font-size: 2em;
     }
   }
-
-  .packages-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 3rem;
-
-    .card {
-      background-color: #6DDFC7;
-      max-width: 20rem;
-      .card-body {
-        .card-text > p {
-          color: black;
-        }
-      }
-    }
-  }
   
   // button styles
   .button-container {
