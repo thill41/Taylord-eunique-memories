@@ -20,6 +20,9 @@
         <li class="nav-item">
           <%= link_to "<i class='fa-solid fa-image fa-lg'></i> Gallery".html_safe, photo_albums_path, class: "nav-link #{'active' if current_page?(photo_albums_path)}" %>
         </li>
+        <li class="nav-item">
+          <%= link_to "<i class='fa-regular fa-envelope fa-lg'></i> Contact".html_safe, new_contact_path, class: "nav-link #{'active' if current_page?(new_contact_path)}" %>
+        </li>
         <li class="nav-item d-flex align-items-center">
           <%= link_to '<i class="fa-brands fa-instagram fa-lg"></i> Instagram'.html_safe, "https://www.instagram.com/euniquememories_/", class: "nav-link", target: "_blank" %>
         </li>
