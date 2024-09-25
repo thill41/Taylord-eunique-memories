@@ -1,0 +1,56 @@
+.star-rating {
+  direction: rtl;
+}
+
+.star-rating label {
+  font-size: 2rem;
+  color: #ddd;
+  cursor: pointer;
+}
+
+.star-rating input[type="radio"] {
+  display: none;
+}
+
+.star-rating input[type="radio"]:checked ~ label {
+  color: gold;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  color: gold;
+}
+
+// review card display
+
+.review-card {
+  background-color: #6DDFC7;
+  color: black;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.review-card:hover {
+  transform: translateY(-5px);
+}
+
+.review-card .card-title,
+.review-card .card-text,
+.review-card .bi {
+  color: black;
+}
+
+/* Footer should be black */
+.review-card .card-footer {
+  background-color: black;
+  border-top: none;
+}
+
+.review-card .bi-star-fill {
+  font-size: 1.2rem;
+}
+
+.review-card .text-black-50 {
+  color: rgba(0, 0, 0, 0.5) !important;
+}

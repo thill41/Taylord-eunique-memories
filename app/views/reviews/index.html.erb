@@ -1,0 +1,40 @@
+<h1 class="text-center mb-5">Customer Reviews</h1>
+
+<div class="container">
+  <div class="row g-4">
+    <% @reviews.each do |review| %>
+      <div class="col-lg-4 col-md-6">
+        <div class="card review-card h-100">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+              <div class="me-3">
+                <i class="bi bi-person-circle fs-1 text-black"></i>
+              </div>
+              <div>
+                <h4 class="card-title mb-0 text-black"><%= reviewer_name(review) %></h4>
+                <p class="text-black-50 mb-0"><%= review.created_at.strftime('%m/%d/%Y') %></p>
+              </div>
+            </div>
+            <p class="card-text text-black">
+              <strong>Review:</strong> <%= review.content %>
+            </p>
+          </div>
+          <div class="card-footer bg-black d-flex justify-content-between align-items-center">
+            <div class="actions">
+              <%= button_to :Delete, review, method: :delete,
+                                           data: { turbo_confirm: t('destroy.confirm') },
+                                           class: 'primary-button' if policy(review).destroy? %>
+            </div>
+            <div>
+              <%= pluralize(review.rating, 'Star') %> <i class="bi bi-star-fill text-warning"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+   
+

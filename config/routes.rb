@@ -6,9 +6,12 @@ Rails.application.routes.draw do
   resource :about, only: %i[show edit update]
   resource :contact, only: %i[new create]
   resources :packages
+  
   resources :photo_albums do
     resources :photos
   end
+
+  resources :reviews, only: %i[index new create destroy]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
