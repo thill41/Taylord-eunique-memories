@@ -78,13 +78,34 @@ Rails.application.configure do
   # Raise error when a before_action's only/except options reference missing actions
   config.action_controller.raise_on_missing_callback_actions = true
 
-  # mailer settings
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-      address: "localhost",
-      port: 1025,
-      enable_starttls_auto: false
-  }
+  # Mail settings
+  # See the following url for GMail specific enablement of account:
+  # https://guides.rubyonrails.org/action_mailer_basics.html#action-mailer-configuration-for-gmail
+
+  if ENV['LIVEMAIL'] == 'true'
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+      address: 'smtp.gmail.com',
+      port: 587,
+      domain: 'euniquememories.com',
+      user_name: Rails.application.credentials.mailserver.username,
+      password: Rails.application.credentials.mailserver.password,
+      authentication: 'plain',
+      enable_starttls: true,
+      open_timeout: 5,
+      read_timeout: 5 
+    }
+
+    config.action_mailer.perform_deliveries = true
+    config.action_mailer.raise_delivery_errors = true
+  else
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+        address: 'localhost',
+        port: 1025,
+        enable_starttls_auto: false
+    }
+  end
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 end
