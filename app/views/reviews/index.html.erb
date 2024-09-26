@@ -1,5 +1,9 @@
 <h1 class="text-center mb-5">Customer Reviews</h1>
 
+<div class="actions">
+  <%= link_to 'Create a Review', new_review_path, class: 'primary-button mb-5' %>
+</div>
+
 <div class="container">
   <div class="row g-4">
     <% @reviews.each do |review| %>

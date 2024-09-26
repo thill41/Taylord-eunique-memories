@@ -21,6 +21,9 @@
           <%= link_to "<i class='fa-solid fa-image fa-lg'></i> Gallery".html_safe, photo_albums_path, class: "nav-link #{'active' if current_page?(photo_albums_path)}" %>
         </li>
         <li class="nav-item">
+          <%= link_to "<i class='fa-regular fa-comment fa-lg'></i> Reviews".html_safe, reviews_path, class: "nav-link #{'active' if current_page?(reviews_path)}" %>
+        </li>
+        <li class="nav-item">
           <%= link_to "<i class='fa-regular fa-envelope fa-lg'></i> Contact".html_safe, new_contact_path, class: "nav-link #{'active' if current_page?(new_contact_path)}" %>
         </li>
         <li class="nav-item d-flex align-items-center">
