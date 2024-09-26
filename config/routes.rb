@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   end
 
   resources :reviews, only: %i[index new create destroy]
+  resources :purchases, only: [:new, :create] do
+    get 'receipt', to: 'purchases#receipt', as: :receipt
+  end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

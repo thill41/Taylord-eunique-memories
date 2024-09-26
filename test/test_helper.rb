@@ -2,6 +2,7 @@ ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 require 'rails/test_help'
 require 'active_storage_validations/matchers'
+require 'mocha/minitest'
 require_relative 'support/authentication_helpers'
 require_relative 'support/integration_helpers'
 

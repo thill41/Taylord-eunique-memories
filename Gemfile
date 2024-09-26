@@ -67,6 +67,7 @@ group :development do
 end
 
 group :test do
+  gem 'mocha'
   gem 'shoulda', '~> 4.0'
   gem 'shoulda-matchers', '~> 4.0'
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
@@ -75,6 +76,7 @@ group :test do
 end
 
 gem 'active_storage_validations'
+gem 'cssbundling-rails', '~> 1.4'
 gem 'devise', '~> 4.9'
 gem 'friendly_id'
 gem 'mini_magick'
@@ -82,6 +84,5 @@ gem 'pundit', '~> 2.4.0'
 gem 'ransack'
 gem 'sassc-rails'
 gem 'sidekiq'
+gem 'stripe'
 gem 'will_paginate'
-
-gem "cssbundling-rails", "~> 1.4"

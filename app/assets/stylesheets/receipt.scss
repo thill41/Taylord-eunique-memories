@@ -1,0 +1,109 @@
+.receipt-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.receipt-card {
+  background-color: #6DDFC7;
+  color: #000;
+  border: none;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: auto;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.receipt-title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+  color: #000;
+}
+
+.receipt-subtitle {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  font-weight: 400;
+  color: #000;
+}
+
+.receipt-details {
+  p,
+  strong {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #000;
+  }
+
+}
+
+.receipt-footer p {
+  font-size: 0.9rem;
+  color: #000;
+  font-style: italic;
+  margin-bottom: 15px;
+}
+
+.print-button {
+  background-color: #fff;
+  color: #6DDFC7;
+  border: 2px solid #6DDFC7;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.print-button:hover {
+  background-color: #6DDFC7;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .receipt-container {
+    max-width: 90%;
+    padding: 10px;
+  }
+
+  .receipt-title {
+    font-size: 1.5rem;
+  }
+
+  .receipt-subtitle {
+    font-size: 1rem;
+  }
+
+  .receipt-details p {
+    font-size: 0.95rem;
+  }
+
+  .receipt-icon i {
+    font-size: 2rem;
+  }
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  .receipt-container, .receipt-container * {
+    visibility: visible;
+  }
+
+  .receipt-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+
+  .receipt-footer button {
+    display: none;
+  }
+}

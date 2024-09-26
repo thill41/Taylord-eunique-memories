@@ -1,3 +1,7 @@
+# if working with stripe, be sure to set up the following ENV variables from your strip account
+STRIPE_SECRET_KEY
+STRIPE_PUBLISHABLE_KEY
+
 web: env RUBY_DEBUG_OPEN=true bin/rails server
 js: yarn build --watch
 css: yarn watch:css
