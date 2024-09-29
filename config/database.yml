@@ -53,3 +53,4 @@ production:
   database: tem_production
   username: tem
   password: <%= ENV["TEM_DATABASE_PASSWORD"] %>
+  socket: /var/run/mysqld/mysqld.sock
