@@ -19,16 +19,16 @@
 
   .contact-actions {
     .primary-button {
-      background-color: #6DDFC7;
+      background-color: $gradient1;
       color: black;
-      border: 1px solid #6DDFC7;
+      border: 1px solid $gradient1;
       font-size: 14px;
       padding: 10px 25px;
       border-radius: 3px;
   
       &:hover {
-        background-color: black;
-        color: #6DDFC7;
+        background-color: $gradient5;
+        color: $gradient1;
       }
     }
   }
