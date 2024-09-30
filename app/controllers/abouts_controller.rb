@@ -2,7 +2,9 @@ class AboutsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show]
   before_action :set_about, only: %i[show edit update]
   
-  def show; end
+  def show
+    authorize @about
+  end
 
   def edit
     authorize @about

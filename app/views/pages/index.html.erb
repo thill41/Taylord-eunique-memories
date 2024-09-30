@@ -7,10 +7,19 @@
     </div>
   </section>
 
-  <section class="slogan">
+  <section>
+    <h3 class="text-center">About</h3>
+
+    <div class="admin-actions">
+      <%= link_to 'Manage About', edit_about_path if policy(@about).edit? %>
+    </div>
+
+    <%= @about.content %>
+  </section>
+  <!--<section class="slogan">
     <h2>Our Mission: Delivering Excellence Every Day</h2>
     <p>Stuff about the company goes here</p>
-  </section>
+  </section> -->
 
   <section>
     <h3 class="text-center">Packages</h3>

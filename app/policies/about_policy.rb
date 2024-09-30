@@ -17,4 +17,5 @@ class AboutPolicy < ApplicationPolicy
   end
 
   alias update? edit?
+  alias show? edit?
 end

@@ -4,5 +4,6 @@ class PagesController < ApplicationController
   def index
     @packages = Package.enabled.order(:position)
     @photo_albums = PhotoAlbum.all
+    @about = About.first
   end
 end
