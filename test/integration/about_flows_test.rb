@@ -8,14 +8,8 @@ class AboutFlowsTest < BaseIntegrationTest
 
   test 'require sign-in' do
     requires_authentication { get edit_about_path }
+    requires_authentication { get about_path }
     requires_authentication { patch about_path }
-  end
-  
-  test 'GET /about public' do
-    get '/about'
-
-    assert_response :success
-    assert_select 'a', text: 'Edit About', count: 0
   end
 
   test 'GET /about signed-in' do
