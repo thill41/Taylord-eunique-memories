@@ -1,3 +1,5 @@
+<% content_for :title, "#{t('app.title')} Photo Albums" %>
+
 <div class="container-fluid photo-albums">
   <div class="admin-actions">
     <%= link_to "New Gallery", new_photo_album_path if policy(PhotoAlbum).create? %>
