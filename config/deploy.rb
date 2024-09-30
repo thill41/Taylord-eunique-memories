@@ -109,8 +109,6 @@ namespace :deploy do
       
       # Export the path
       info "Exporting PATH to include #{asdf_bin_path}"
-      # execute "echo 'export PATH=#{asdf_bin_path}:$PATH' >> ~/.bashrc"
-      # execute 'source ~/.bashrc'
       execute "export PATH=#{asdf_bin_path}:$PATH && source ~/.asdf/asdf.sh && echo $PATH"
 
       # Ensure Ruby version
@@ -130,8 +128,36 @@ namespace :deploy do
     end
   end
 
-  before 'deploy:starting', 'deploy:upload_configs'
-  before 'deploy:updated', 'deploy:bundle_install'
+  desc 'Compile assets'
+  task :compile_assets do
+    on roles(:app) do
+      within release_path do
+        with rails_env: fetch(:rails_env) do
+          execute :rake, 'assets:precompile'
+        end
+      end
+    end
+  end
+
+  desc 'Restart Nginx'
+  task :restart_nginx do
+    on roles(:web) do
+      execute :sudo, :systemctl, 'restart nginx'
+    end
+  end
+
+  desc 'Restart Puma'
+  task :restart_puma do
+    on roles(:app) do
+      execute :sudo, :systemctl, 'restart puma'
+    end
+  end
+
+  before :starting, :upload_configs
+  before :updated, :bundle_install
+  after :finishing, :compile_assets
+  after :finishing, :restart_nginx
+  after :finishing, :restart_puma
 end
 
 #   # after :restart, :clear_cache do
