@@ -1,5 +1,5 @@
 class ContactMailer < ApplicationMailer
-  default to: Rails.application.credentials.email
+  default to: ENV.fetch('LIVEMAIL', 'false') == 'true' ? Rails.application.credentials.dev_email : Rails.application.credentials.email
 
   def contact_email
     @event_type = params[:event_type]
