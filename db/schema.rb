@@ -70,6 +70,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_01_224544) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "description"
     t.index ["user_id"], name: "index_packages_on_user_id"
   end
 
