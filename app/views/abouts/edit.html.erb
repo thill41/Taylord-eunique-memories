@@ -1,7 +1,9 @@
 <main class="container-fluid">
   <h1 class="text-center">Edit About</h1>
+  
+  <%= render 'layouts/error_messages_for', obj: @about %>
 
-  <%= form_with model: @about, url: about_path, method: :patch do |f| %>
+  <%= form_with model: @about, url: about_path, method: :patch, data: { turbo: false } do |f| %>
     <div class="field">
       <%= f.label :content, class: "sr-only" %>
       <%= f.rich_text_area :content %>

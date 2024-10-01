@@ -35,7 +35,7 @@ class AboutFlowsTest < BaseIntegrationTest
 
     assert_redirected_to '/about'
     follow_redirect!
-    assert_select "div[role='alert']", success_message(@about)
+    assert_select "div[role='alert']", success_message(@about, :updated)
     assert_select '.trix-content', 'New content'
   end
 

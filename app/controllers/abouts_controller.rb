@@ -13,7 +13,7 @@ class AboutsController < ApplicationController
     authorize @about
     
     if @about.update(about_params)
-      redirect_to about_path, success: success_message(@about)
+      redirect_to about_path, success: success_message(@about, :updated)
     else
       flash_error_message
       render :edit
