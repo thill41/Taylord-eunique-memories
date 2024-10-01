@@ -3,6 +3,7 @@ require 'test_helper'
 class PageFlowsTest < BaseIntegrationTest
   setup do
     create(:about)
+    create(:mission_statement)
   end
 
   test 'GET /' do
