@@ -8,14 +8,15 @@ h6
 a,
 button {
   font-family: 'Alegreya', Georgia, 'Times New Roman', Palatino, serif;
-  color: black;
+  color: $gradient1;
 }
 
 body {
-  background-color: $primary-color;
+  background-color: black;
 }
 a {
   text-decoration: none;
+  color: $gradient1;
   
   &:hover {
     text-decoration: underline;
@@ -36,7 +37,7 @@ a {
 
 label.form-label {
   font-size: $large-font-size;
-  color: $black;
+  color: $gradient1;
   &.light-label {
     color: $secondary-color;
   }
