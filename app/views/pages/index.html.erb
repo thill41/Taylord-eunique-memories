@@ -12,6 +12,7 @@
 
     <div class="admin-actions">
       <%= link_to 'Manage About', edit_about_path if policy(@about).edit? %>
+      <%= link_to 'Manage Mission Statement', edit_mission_statement_path if policy(@mission_statement).edit? %>
     </div>
 
     <%= @about.content %>

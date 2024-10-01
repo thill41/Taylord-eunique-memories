@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   resource :about, only: %i[show edit update]
   resource :contact, only: %i[new create]
+  resource :mission_statement, only: %i[show edit update]
   resources :packages
   
   resources :photo_albums do

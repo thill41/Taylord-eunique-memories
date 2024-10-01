@@ -1,0 +1,12 @@
+<main class="container-fluid">
+  <h1 class="text-center">Mission Statement</h1>
+  
+  <div class="admin-actions">
+    <%= link_to 'Edit', edit_about_path if policy(@mission_statement).edit? %>
+  </div>
+  
+  
+  <div class="trix-content">
+    <%= @mission_statement.content %>
+  </div>
+</main>

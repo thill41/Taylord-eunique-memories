@@ -8,7 +8,7 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-User.create!(
+user = User.create!(
   first_name: 'Joe',
   last_name: 'Smith',
   username: 'jsmith',
@@ -20,7 +20,7 @@ User.create!(
 
 About.create!(
   content: 'This is the about us page content.',
-  user: User.first
+  user: user
 )
 
 2.times do |n|
@@ -50,3 +50,8 @@ end
     content: Faker::Lorem.paragraph
   )
 end
+
+MissionStatement.create!(
+  user: user,
+  content: 'This is the mission statement content.'
+)
