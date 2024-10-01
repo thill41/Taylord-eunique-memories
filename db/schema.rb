@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_09_30_235949) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_01_224544) do
   create_table "abouts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
@@ -64,9 +64,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_30_235949) do
   end
 
   create_table "packages", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "name", default: "", null: false
     t.integer "price", default: 0, null: false
-    t.text "description"
     t.string "position", default: "", null: false
     t.boolean "enabled", default: false, null: false
     t.bigint "user_id"
