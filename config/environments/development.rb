@@ -82,7 +82,7 @@ Rails.application.configure do
   # See the following url for GMail specific enablement of account:
   # https://guides.rubyonrails.org/action_mailer_basics.html#action-mailer-configuration-for-gmail
 
-  if ENV['LIVEMAIL'] == 'true'
+  if ENV.fetch('LIVEMAIL', 'false') == 'true'
     config.action_mailer.delivery_method = :smtp
     config.action_mailer.smtp_settings = {
       address: 'smtp.gmail.com',
