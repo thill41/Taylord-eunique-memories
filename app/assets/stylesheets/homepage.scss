@@ -16,7 +16,7 @@
     overflow: hidden;
     margin-bottom: 15px;
     .hero-image {
-      background-image: url('hero.png');
+      background-image: url('hero.jpeg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -28,10 +28,6 @@
         left: 50%;
         transform: translate(-50%, -50%);
         text-align: center;
-        .hero-content h1 {
-          font-size: 3rem;
-          margin: 0;
-        }
       }
     }
   }
