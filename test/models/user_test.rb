@@ -10,6 +10,7 @@ class UserTest < ActiveSupport::TestCase
 
   context 'associations' do
     should have_one :about
+    should have_one :mission_statement
     should have_many :photo_albums
     should have_many :packages
   end
