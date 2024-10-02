@@ -4,7 +4,7 @@ class PagesController < ApplicationController
   def index
     skip_authorization
     
-    @packages = Package.enabled.order(:position)
+    @packages = Package.enabled.order(:position, :name)
     @photo_albums = PhotoAlbum.all
     @about = About.first
     @mission_statement = MissionStatement.first
