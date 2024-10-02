@@ -24,20 +24,12 @@
     }
 
     .card-body {
-      margin: 0;
-      padding: 0;
+      text-align: left;
 
-      .card-text > p {
-        color: black;
-        font-size: $small-font-size;
-      }
-
-      .package-starts-at {
-        margin-bottom: 0;
-      }
-
-      .package-price {
-        margin-top: -0.5rem;
+      div#trix-content {
+        * {
+          color: black;
+        }
       }
     }
   }

@@ -8,7 +8,7 @@
   </section>
 
   <section>
-    <h3 class="text-center">About</h3>
+    <h2 class="text-center fs-1">About</h2>
 
     <div class="admin-actions">
       <%= link_to 'Manage About', edit_about_path if policy(@about).edit? %>
@@ -19,7 +19,7 @@
   </section>
 
   <section>
-    <h3 class="text-center">Packages</h3>
+    <h2 class="text-center fs-1">Packages</h2>
 
     <div class="admin-actions">
       <%= link_to "Manage Packages", packages_path if policy(Package).update?%>
@@ -31,7 +31,7 @@
   </section>
 
   <section>
-    <h3 class="text-center">Features</h3>
+    <h2 class="text-center fs-1">Features</h2>
 
     <div class="admin-actions">
       <%= link_to "Manage Photo Albums", photo_albums_path if user_signed_in? %>
@@ -102,10 +102,9 @@
     </div>
   </section>
 
-  <section>
-    <div class="button-container">
-      <%= link_to 'Contact Now', new_contact_path, class: "button contact-btn" %>
-      <!-- <a href="#buy-now" class="button buy-btn">Buy Now</a> -->
-    </div>
-  </section>
+  <div class="button-container">
+    <%= link_to 'Contact Now', new_contact_path, class: "button contact-btn" %>
+    <!-- <a href="#buy-now" class="button buy-btn">Buy Now</a> -->
+  </div>
+  
 </main>

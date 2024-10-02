@@ -3,8 +3,8 @@ require 'test_helper'
 class PackageTest < ActiveSupport::TestCase
   context 'associations' do
     should belong_to(:user)
-    should have_one_attached(:image)
     should have_many(:purchases)
+    should have_rich_text(:content)
   end
 
   context 'validates' do

@@ -1,5 +1,6 @@
 <main class="container-fluid">
   <%= render "layouts/error_messages_for", obj: @package %>
+
   <%= form_with model: @package, local: true, data: { turbo: false } do |form| %>
     <div class="mb-3">
       <%= form.check_box :enabled, class: "form-check-input", id: "enabled" %>
@@ -7,23 +8,13 @@
     </div>
 
     <div class="mb-3">
-      <%= form.label :name, "Name", class: "form-label" %>
-      <%= form.text_field :name, class: "form-control", placeholder: "Name" %>
+      <%= form.label :name, "Name: For internal use only", class: "form-label" %>
+      <%= form.text_field :name, class: "form-control" %>
     </div>
 
     <div class="mb-3">
-      <%= form.label :image, "Upload Image", class: "form-label" %>
-      <%= form.file_field :image, class: "form-control", multipart: true %>
-    </div>
-
-    <div class="mb-3">
-      <%= form.label :price, "Price", class: "form-label" %>
+      <%= form.label :price, "Price: For internal use only", class: "form-label" %>
       <%= form.number_field :price, class: "form-control", placeholder: "Price" %>
-    </div>
-
-    <div class="mb-3">
-      <%= form.label :description, "Description", class: "form-label" %>
-      <%= form.text_area :description, class: "form-control", style: "height: 100px", placeholder: "Description" %>
     </div>
 
     <div class="mb-3">
@@ -31,10 +22,21 @@
       <%= form.number_field :position, class: "form-control", placeholder: "Set the order of the packages on the homepage" %>
     </div>
 
+    <div class="mb-3">
+      <%= form.label :content, "Content", class: "form-label" %>
+      <%= form.rich_text_area :content %>
+    </div>
+
     <div class="actions">
       <%= link_to 'Cancel', (@package.new_record? ?  packages_path : @package), class: 'secondary-button' %>
       <%= form.submit class: "primary-button" %>
     </div>
   <% end %>
+
+  <div class="actions">
+    <%= button_to 'Delete Package', @package, method: :delete,
+                                                  data: { turbo_confirm: t('destroy.confirm') },
+                                                  class: 'secondary-button' if @package.persisted? && policy(@package).destroy? %>
+  </div>
 </main>
 
