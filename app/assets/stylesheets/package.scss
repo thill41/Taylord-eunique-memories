@@ -13,24 +13,36 @@
   }
 }
 
+.packages-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
 .package-item {
-  .card {
-    background-color: #6DDFC7;
-    max-width: 10rem;
-    min-height: 30rem;
+  flex: 1 1 100%;
+  min-width: 0;
+}
 
-    .card-header {
-      border-bottom: none;
-    }
+.card {
+  height: 100%;
+  background-color: #6DDFC7;
+}
 
-    .card-body {
-      text-align: left;
+.card-body {
+  text-align: left;
+}
 
-      div#trix-content {
-        * {
-          color: black;
-        }
-      }
-    }
+#trix-content {
+  flex-grow: 1;
+}
+
+#trix-content * {
+  color: black;
+}
+
+@media (min-width: 768px) {
+  .package-item {
+    flex: 1 1 calc(33.333% - 1rem);
   }
 }
