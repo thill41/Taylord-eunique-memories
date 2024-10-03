@@ -11,13 +11,16 @@
       <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav d-flex flex-column flex-lg-row justify-content-center gap-3">
           <li class="nav-item">
-            <%= link_to "<i class='fa-solid fa-house fa-lg'></i> Home".html_safe, root_path, class: "nav-link #{'active' if current_page?(root_path)}" %>
+            <%= link_to :Home, root_path, class: "nav-link #{'active' if current_page?(root_path)}" %>
           </li>
           <li class="nav-item">
-            <%= link_to "<i class='fa-regular fa-file-lines fa-lg'></i> Mission Statement".html_safe,  mission_statement_path, class: "nav-link #{'active' if current_page?(about_path)}" %>          
+            <%= link_to "Mission Statement",  mission_statement_path, class: "nav-link #{'active' if current_page?(about_path)}" %>          
           </li>
           <li class="nav-item">
-            <%= link_to "<i class='fa-solid fa-image fa-lg'></i> Gallery".html_safe, photo_albums_path, class: "nav-link #{'active' if current_page?(photo_albums_path)}" %>
+            <%= link_to "Photo Gallery", photo_albums_path, class: "nav-link #{'active' if current_page?(photo_albums_path)}" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Book Now", new_contact_path, class: "nav-link #{'active' if current_page?(new_contact_path)}" %>
           </li>
 
           <%= authentication_actions %>

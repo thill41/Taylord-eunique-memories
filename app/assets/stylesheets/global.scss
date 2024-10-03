@@ -77,11 +77,14 @@ label.form-label {
 
 .navbar {
   background-color: $gradient1;
-  .navbar-nav > .nav-item > .nav-link {
-    color: $primary-color
+  
+  .navbar-nav > .nav-item > .nav-link,
+  .navbar-nav > .nav-item > i {
+    color: $gradient6
   }
+
   .navbar-toggler {
-    background-color: $primary-color;
+    background-color: $gradient6;
     height: 40px;
   }
 }
