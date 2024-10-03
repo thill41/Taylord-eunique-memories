@@ -1,5 +1,6 @@
 class ContactsController < ApplicationController
   skip_before_action :authenticate_user!
+  before_action :set_packages
   def new
     @contact = Contact.new
   end
@@ -16,14 +17,19 @@ class ContactsController < ApplicationController
 
   private
 
+  def set_packages
+    @packages = Package.order(:position, :name)
+  end
+
   def contact_params
-    params.require(:contact).permit(:event_type,
+    params.require(:contact).permit(:event_date,
+                                    :event_type,
+                                    :email,
                                     :first_name,
                                     :last_name,
-                                    :event_date,
-                                    :email,
+                                    :message,
+                                    :package_id,
                                     :phone,
-                                    :reference,
-                                    :message)
+                                    :reference)
   end
 end

@@ -38,6 +38,8 @@ en:
   alert: Alert!
   destroy:
     confirm: Are you sure? This can't be undone!
+  contact_mailer:
+    subject: "New bookings message from %{first_name} %{last_name}"
   # active_storage_validation
   errors:
     messages:

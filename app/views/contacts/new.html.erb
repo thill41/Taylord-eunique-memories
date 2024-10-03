@@ -9,7 +9,7 @@
     
     <div class="col-md-6 ms-md-4">
       <div class="col-md-8 mx-auto">
-        <header class="header">Questions?</header>
+        <header class="header">Book Now!</header>
 
         <div class="sub-header">
           <p>Ask them below or call our Maryland location at</p>
@@ -24,7 +24,19 @@
             <%= f.label :event_type, "What type of event are you planning? (required)", class: 'form-label' %>
             <%= f.select :event_type, 
                           options_for_select(['Wedding', 'Birthday', 'Graduation', 'Corporate Party', 'Conference', 'Other']),
-                          { prompt: 'Select an option' },
+                          { prompt: 'Select an event type' },
+                          class: 'form-control',
+                          required: true %>
+          </div>
+        </div>
+
+        <div class="mb-4 row">
+          <div class="col-md-8 mx-auto">
+
+            <%= f.label :package_id, "Package Name (required)", class: 'form-label' %>
+            <%= f.select :package_id, 
+                          options_for_select(@packages.collect { |package| [package.name, package.id] }),
+                          { prompt: 'Select a package' },
                           class: 'form-control',
                           required: true %>
           </div>
@@ -79,8 +91,8 @@
 
         <div class="mb-4 row">
           <div class="col-md-8 mx-auto">
-            <%= f.label :message, "Question (required)", class: 'form-label' %>
-            <%= f.text_area :message, class: 'form-control', rows: 5, required: true, id: :message %>
+            <%= f.label :message, "Additional Information (required)", class: 'form-label' %>
+            <%= f.text_area :message, class: 'form-control', rows: 5, required: true, id: :message, placeholder: "Have a general question or would have additional information about your booking?" %>
           </div>
         </div>
 
