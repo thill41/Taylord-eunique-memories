@@ -1,9 +1,13 @@
-<div class="col-auto package-item">
-  <div class="card mb-3">
-    <div class="card-body">
-      <div class="card-text" id="trix-content">
-        <%= package.content %>
-      </div>
-    </div>
+<div class="card p-4 rounded-lg shadow-md">
+  <div class="card-body-top">
+    <h2 class="text-xl font-bold mb-2"><%= package.name %></h2>
+    <p class="text-black"><%= truncate(package.content.to_plain_text, length: 100) %></p>
   </div>
+  <div class="card-body-bottom hidden mt-4">
+    <p class="package-content"><%= package.content %></p>
+    <!-- Add more details here -->
+  </div>
+  <button data-action="click->carousel#toggleContent" class="toggle-button mt-4 px-4 py-2 rounded text-black bg-[#009ca6]">
+    Show More
+  </button>
 </div>

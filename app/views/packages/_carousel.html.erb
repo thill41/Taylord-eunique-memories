@@ -1,0 +1,19 @@
+<div data-controller="carousel" class="carousel-wrapper">
+  <button data-action="carousel#previous" class="carousel-arrow left-arrow">
+    &larr;
+  </button>
+  
+  <div class="carousel">
+    <div class="carousel-container overflow-hidden">
+      <% @packages.each_with_index do |package, index| %>
+        <div class="carousel-slide" data-carousel-target="slide">
+          <%= render package %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  
+  <button data-action="carousel#next" class="carousel-arrow right-arrow">
+    &rarr;
+  </button>
+</div>
