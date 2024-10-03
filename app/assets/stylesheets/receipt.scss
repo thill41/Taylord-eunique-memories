@@ -5,7 +5,7 @@
 }
 
 .receipt-card {
-  background-color: #6DDFC7;
+  background-color: $gradient1;
   color: #000;
   border: none;
   border-radius: 10px;
@@ -51,8 +51,8 @@
 
 .print-button {
   background-color: #fff;
-  color: #6DDFC7;
-  border: 2px solid #6DDFC7;
+  color: $gradient1;
+  border: 2px solid $gradient1;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
@@ -60,7 +60,7 @@
 }
 
 .print-button:hover {
-  background-color: #6DDFC7;
+  background-color: $gradient1;
   color: #fff;
 }
 

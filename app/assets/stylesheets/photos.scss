@@ -53,7 +53,7 @@
     right: 20px;
 
     .close-button {
-      color: #6DDFC7;
+      color: $gradient1;
       font-size: 3em;
       text-decoration: none;
       background: rgba(0, 0, 0, 0.5);
@@ -87,7 +87,7 @@
         min-width: 300px;
         max-width: 800px;
         height: 100%;
-        border: 1px solid #6DDFC7;
+        border: 1px solid $gradient1;
         .card-img {
           object-fit: cover;
           height: 400px;
@@ -104,7 +104,7 @@
       }
 
       .card-body > .card-link {
-        color: $secondary-color;
+        color: $gradient1;
         text-decoration: none;
         font-size: $medium-font-size;
         &:hover {
@@ -113,7 +113,7 @@
       }
       
       .nav-arrow {
-        color: #6DDFC7;
+        color: $gradient1;
         font-size: 4em;
         cursor: pointer;
         text-decoration: none;

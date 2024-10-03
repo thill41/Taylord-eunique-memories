@@ -2,10 +2,10 @@
 
 // Style the entire toolbar container
 trix-toolbar {
-  background-color: #6DDFC7;
+  background-color: $gradient1;
   border-radius: 5px;
   padding: 10px; 
-  border: 1px solid #6DDFC7;
+  border: 1px solid $gradient1;
   display: flex;
   justify-content: center;
   margin: 0 auto;

@@ -11,9 +11,22 @@ button {
   color: $gradient1;
 }
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 body {
   background-color: black;
+  margin-bottom: 200px;
 }
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
 a {
   text-decoration: none;
   color: $gradient1;
@@ -22,6 +35,7 @@ a {
     text-decoration: underline;
   }
 }
+
 .header {
   text-align: center;
   margin-bottom: 20px;
@@ -39,7 +53,7 @@ label.form-label {
   font-size: $large-font-size;
   color: $gradient1;
   &.light-label {
-    color: $secondary-color;
+    color: $gradient1;
   }
 }
 
@@ -62,7 +76,7 @@ label.form-label {
 }
 
 .navbar {
-  background-color: $secondary-color;
+  background-color: $gradient1;
   .navbar-nav > .nav-item > .nav-link {
     color: $primary-color
   }
@@ -79,7 +93,7 @@ label.form-label {
     gap: 10px;
     margin-bottom: 10px;
     a {
-      color: $secondary-color
+      color: $gradient1
     }
 
     .text-lowercase {
@@ -93,7 +107,7 @@ label.form-label {
     .button-link {
       background: none;
       border: none;
-      color: $secondary-color;
+      color: $gradient1;
       text-decoration: none;
       cursor: pointer;
       padding: 0;
@@ -114,29 +128,29 @@ label.form-label {
   margin-top: 20px;
 
   .primary-button {
-    background-color: $secondary-color;
+    background-color: $gradient1;
     color: black;
-    border: 1px solid $secondary-color;
+    border: 1px solid $gradient1;
     font-size: 14px;
     padding: 5px 10px;
     border-radius: 3px;
 
     &:hover {
       background-color: $gradient5;
-      color: $secondary-color;
+      color: $gradient1;
     }
   }
 
   .secondary-button {
     background-color: black;
-    color: $secondary-color;
-    border: 1px solid $secondary-color;
+    color: $gradient1;
+    border: 1px solid $gradient1;
     font-size: 14px;
     padding: 5px 10px;
     border-radius: 3px;
 
     &:hover {
-      background-color: $secondary-color;
+      background-color: $gradient1;
       color: black;
     }
   }
@@ -144,8 +158,8 @@ label.form-label {
 
 // pagination styles
 .apple_pagination {
-  background: $secondary-color;
-  border: 1px solid $secondary-color;
+  background: $gradient1;
+  border: 1px solid $gradient1;
   text-align: center;
   padding: 1em;
   cursor: default;
