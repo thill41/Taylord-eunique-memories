@@ -5,12 +5,13 @@ class ContactFlowsTest < BaseIntegrationTest
     get new_contact_url
 
     assert_response :success
-    assert_select 'header', 'Questions?'
+    assert_select 'header', 'Book Now!'
 
     form_data = {
       first_name: Faker::Name.first_name,
       last_name: Faker::Name.last_name,
       event_date: Time.zone.today,
+      package_id: create(:package).id,
       email: Faker::Internet.email,
       phone: Faker::PhoneNumber.phone_number,
       reference: Faker::Lorem.paragraph,
