@@ -102,7 +102,7 @@ end
 
 namespace :deploy do
   desc 'Upload configuration files'
-  task :upload_configs do
+  task :preflight_check do
     on roles(:app) do
       # Set the path to the asdf Ruby bin directory
       asdf_bin_path = "/home/deploy/.asdf/installs/ruby/#{fetch(:ruby_version)}/bin"
@@ -114,18 +114,6 @@ namespace :deploy do
       # Ensure Ruby version
       info "Ensuring Ruby version is #{fetch(:ruby_version)}"
       execute "source ~/.asdf/asdf.sh && asdf local ruby #{fetch(:ruby_version)}"
-      
-      # Make a copy of the files before uploading
-      execute :cp, "#{shared_path}/config/database.yml.enc", "#{shared_path}/config/database.yml.enc.bak"
-      execute :cp, "#{shared_path}/config/master.key", "#{shared_path}/config/master.key.bak"
-      execute :cp, "#{shared_path}/config/credentials/production.key", "#{shared_path}/config/credentials/production.key.bak"
-      execute :cp, "#{shared_path}/config/credentials/production.yml.enc", "#{shared_path}/config/credentials/production.yml.enc.bak"
-
-      # Upload the new files
-      upload! 'config/database.yml.enc', "#{shared_path}/config/database.yml.enc"
-      upload! 'config/master.key', "#{shared_path}/config/master.key"
-      upload! 'config/credentials/production.key', "#{shared_path}/config/credentials/production.key"
-      upload! 'config/credentials/production.yml.enc', "#{shared_path}/config/credentials/production.yml.enc"
       
       # Export RAILS_SERVE_STATIC_FILES environment variable
       execute 'export RAILS_SERVE_STATIC_FILES=true'
@@ -168,8 +156,26 @@ namespace :deploy do
     end
   end
 
-  before :starting, :upload_configs
+  desc 'Upload configuration files'
+  task :upload_configs do
+    on roles(:app) do
+      # Make a copy of the files before uploading
+      execute :cp, "#{shared_path}/config/database.yml.enc", "#{shared_path}/config/database.yml.enc.bak"
+      execute :cp, "#{shared_path}/config/master.key", "#{shared_path}/config/master.key.bak"
+      execute :cp, "#{shared_path}/config/credentials/production.key", "#{shared_path}/config/credentials/production.key.bak"
+      execute :cp, "#{shared_path}/config/credentials/production.yml.enc", "#{shared_path}/config/credentials/production.yml.enc.bak"
+
+      # Upload the new files
+      upload! 'config/database.yml.enc', "#{shared_path}/config/database.yml.enc"
+      upload! 'config/master.key', "#{shared_path}/config/master.key"
+      upload! 'config/credentials/production.key', "#{shared_path}/config/credentials/production.key"
+      upload! 'config/credentials/production.yml.enc', "#{shared_path}/config/credentials/production.yml.enc"
+    end
+  end
+
+  before :starting, :preflight_check
   before :updated, :bundle_install
+  # after :finishing, :upload_configs
   after :finishing, :compile_assets
   after :finishing, :restart_nginx
   after :finishing, :restart_puma
