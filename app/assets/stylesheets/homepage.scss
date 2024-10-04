@@ -35,7 +35,7 @@
   
     @media screen and (max-width: 768px) {
       height: auto;
-      min-height: 100vh;
+      min-height: unset; // Remove the minimum height constraint
   
       &-image {
         background-size: contain;
@@ -50,6 +50,7 @@
         left: auto;
         transform: none;
         padding: 20px;
+        margin-top: -20px; // Pull the content up slightly
       }
     }
   }
