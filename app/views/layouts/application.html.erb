@@ -19,8 +19,10 @@
     <%= flash_error %>
     <%= flash_notice %>
     <%= flash_success %>
-
-    <%= yield %>
+    
+    <div class="content-wrapper">
+      <%= yield %>
+    </div>
 
     <%= render 'layouts/footer' %>
   </body>
