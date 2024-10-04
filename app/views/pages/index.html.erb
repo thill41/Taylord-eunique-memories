@@ -39,12 +39,12 @@
       <div class="row text-center">
         <div class="col">
         <h4>Photos</h4>
-          <%= image_tag 'features-photos.jpg', class: "img-fluid" %>
+          <%= image_tag 'features/photos.jpg', class: "img-fluid" %>
         </div>
         
         <div class="col">
         <h4>Boomerangs</h4>
-        <%= video_tag "features-boomerang.mp4", 
+        <%= video_tag "features/boomerang.mov", 
             controls: false, 
             autoplay: true, 
             loop: true, 
@@ -56,14 +56,20 @@
 
         <div class="col">
         <h4>Gifs</h4>
-          <%= image_tag 'features-gif.jpg', class: "img-fluid" %>
+        <%= video_tag "features/gif.mp4", 
+              controls: false, 
+              autoplay: true, 
+              loop: true, 
+              muted: true,
+              preload: "auto", 
+              class: "img-fluid" %>
         </div>
       </div>
 
       <div class="row text-center">
         <div class="col">
           <h4>Videos</h4>
-          <%= video_tag "features-videos.mp4", 
+          <%= video_tag "features/videos.mp4", 
               controls: false, 
               autoplay: true, 
               loop: true, 
@@ -74,29 +80,29 @@
       
         <div class="col">
           <h4>Filters</h4>
-          <%= image_tag 'features-filters.jpg', class: "img-fluid", width: "250px" %>
+          <%= image_tag 'features/filters.jpeg', class: "img-fluid", width: "250px" %>
         </div>
       
         <div class="col">
-          <h4>Instanct Sharing</h4>
-          <%= image_tag 'features-sharing.jpg', class: "img-fluid" %>
+          <h4>Instant Sharing</h4>
+          <%= image_tag 'features/sharing.jpg', class: "img-fluid" %>
         </div>
       </div>
 
       <div class="row text-center">
         <div class="col">
           <h4>Gallery</h4>
-          <%= image_tag 'features-gallery.jpg', class: "img-fluid" %>
+          <%= image_tag 'features/gallery.jpg', class: "img-fluid" %>
         </div>
       
         <div class="col">
           <h4>Greenscreen</h4>
-          <%= image_tag 'features-greenscreen.jpg', class: "img-fluid", style: "height: 300px;" %>
+          <%= image_tag 'features/green-screen.jpg', class: "img-fluid" %>
         </div>
       
         <div class="col">
           <h4>LED</h4>
-          <%= image_tag 'features-led.jpg', class: "img-fluid" %>
+          <%= image_tag 'features/led.jpg', class: "img-fluid" %>
         </div>
       </div>
     </section>
