@@ -1,0 +1,23 @@
+# /etc/systemd/system/puma.service
+
+[Unit]
+Description=Puma HTTP Server for Rails Application
+After=network.target
+
+[Service]
+Type=simple
+User=deploy
+Group=www-data
+WorkingDirectory=/home/deploy/tem/current
+
+# Ensure the correct Ruby and Bundler paths
+Environment=RAILS_ENV=production
+Environment=PATH=/home/deploy/.rbenv/shims:/home/deploy/.asdf/installs/ruby/3.3.3/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+# ExecStart uses bundle exec puma with the config file
+ExecStart=/home/deploy/.asdf/installs/ruby/3.3.3/bin//bundle exec puma -C /home/deploy/tem/current/config/puma.rb
+
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
