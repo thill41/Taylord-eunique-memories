@@ -83,13 +83,10 @@ end
 gem 'active_storage_validations'
 gem 'cssbundling-rails', '~> 1.4'
 gem 'devise', '~> 4.9'
-gem 'friendly_id'
 gem 'mini_magick'
 # Needed until Ruby 3.3.4 is released https://github.com/ruby/ruby/pull/11006
 gem 'net-pop', github: 'ruby/net-pop'
 gem 'pundit', '~> 2.4.0'
-gem 'ransack'
 gem 'sassc-rails'
 gem 'sidekiq'
-gem 'stripe'
 gem 'will_paginate'
