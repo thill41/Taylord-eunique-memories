@@ -35,18 +35,21 @@
   
     @media screen and (max-width: 768px) {
       height: auto;
+      min-height: 100vh;
   
       &-image {
-        height: 100vh; // Full viewport height
-        background-size: cover;
-        background-position: center;
+        background-size: contain;
+        background-position: center top;
+        padding-top: 56.25%; // This creates a 16:9 aspect ratio
+        height: 0; // Height is controlled by padding-top
       }
   
       &-content {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
         padding: 20px;
-        background-color: rgba(0, 0, 0, 0.5);
-        color: white;
-        width: 100%;
       }
     }
   }
