@@ -1,4 +1,4 @@
-<% cache do %>
+<% cache(expires_in: 1.hour) do %>
   <% content_for :title, "#{t('app.title')} Photo Albums" %>
 
   <div class="container-fluid photo-albums">

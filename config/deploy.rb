@@ -173,10 +173,20 @@ namespace :deploy do
     end
   end
 
+  desc 'clear cache after deployment to pick up any new changes to the front end.'
+  task :clear_cache do
+    on roles(:app), in: :groups, limit: 3, wait: 10 do
+      within release_path do
+        execute :rails, 'runner', 'Rails.cache.clear'
+      end
+    end
+  end
+
   before :starting, :preflight_check
   before :updated, :bundle_install
   # after :finishing, :upload_configs
   after :finishing, :compile_assets
+  after :finishing, :clear_cache
   after :finishing, :restart_nginx
   after :finishing, :restart_puma
 end
