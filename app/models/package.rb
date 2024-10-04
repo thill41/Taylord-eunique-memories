@@ -1,6 +1,5 @@
 class Package < ApplicationRecord
   belongs_to :user
-  has_many :purchases, dependent: :destroy
   has_rich_text :content
 
   validates :price, :position, :content, :name, presence: true
