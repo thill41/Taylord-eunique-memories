@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="carousel"
 export default class extends Controller {
-  static targets = ["slide"]
+  static targets = ["slide", "description"]
 
   connect() {
     this.currentIndex = 0
@@ -31,8 +31,13 @@ export default class extends Controller {
 
   toggleContent(event) {
     const button = event.currentTarget
-    const cardBody = button.closest('.card').querySelector('.card-body-bottom')
-    cardBody.classList.toggle('hidden')
-    button.textContent = cardBody.classList.contains('hidden') ? 'Show More' : 'Show Less'
+    const card = button.closest('.card')
+    const cardBodyBottom = card.querySelector('.card-body-bottom')
+    const description = card.querySelector('.package-description')
+
+    cardBodyBottom.classList.toggle('hidden')
+    description.classList.toggle('hidden')
+
+    button.textContent = cardBodyBottom.classList.contains('hidden') ? 'Show More' : 'Show Less'
   }
 }

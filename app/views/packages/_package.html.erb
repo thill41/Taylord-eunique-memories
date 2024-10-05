@@ -1,7 +1,9 @@
 <div class="card p-4 rounded-lg shadow-md">
   <div class="card-body-top">
     <h2 class="text-xl font-bold mb-2"><%= package.name %></h2>
-    <p class="text-black"><%= truncate(package.content.to_plain_text, length: 100) %></p>
+    <p class="text-black package-description" data-carousel-target="description">
+      <%= truncate(package.content.to_plain_text, length: 100) %>
+    </p>
   </div>
   <div class="card-body-bottom hidden mt-4">
     <p class="package-content"><%= package.content %></p>
